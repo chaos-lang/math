@@ -1,0 +1,35 @@
+name: Memory Leak Checks
+
+on: [push]
+
+jobs:
+  linux:
+    name: linux
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Install dependencies
+      run: |
+        sudo apt update
+        sudo apt install -y git valgrind
+        sudo make requirements
+
+    - name: Build (gcc)
+      run: |
+        cd .chaos/ && sudo make && sudo make install && cd ..
+        make
+
+    - name: Run the memory leak checks (gcc)
+      run: |
+        make memcheck
+
+    - name: Build (clang)
+      run: |
+        cd .chaos/ && sudo make clang && sudo make install && cd ..
+        make clang
+
+    - name: Run the memory leak checks (clang)
+      run: |
+        make memcheck

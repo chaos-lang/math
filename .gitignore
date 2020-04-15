@@ -1,0 +1,20 @@
+# Ignore the dynamic library files
+*.so
+*.dylib
+*.o
+*.a
+*.dll
+*.exp
+*.lib
+
+# Spells directory
+spells/
+
+# Editors and IDEs
+.vscode/
+
+# Ignore local history
+.history
+
+# Chaos project directory
+.chaos/

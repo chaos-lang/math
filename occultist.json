@@ -1,0 +1,15 @@
+{
+    "name": "template",
+    "version": "1.0.0",
+    "description": "Template for Chaos C extension developers.",
+    "tags": ["official", "template"],
+    "type": "extension",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "M. Mert Yildiran",
+            "email": "me@mertyildiran.com",
+            "role": "Maintainer"
+        }
+    ]
+}
