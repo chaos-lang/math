@@ -4,6 +4,8 @@ SHELL=/bin/bash
 
 UNAME_S := $(shell uname -s)
 
+export SPELL_NAME=math
+
 default:
 	export CHAOS_COMPILER=gcc
 	${MAKE} build
@@ -20,15 +22,15 @@ else
 endif
 
 build-linux:
-	${CHAOS_COMPILER} -shared -fPIC math.c -o math.so -lm
+	${CHAOS_COMPILER} -shared -fPIC ${SPELL_NAME}.c -o ${SPELL_NAME}.so -lm
 
 build-macos:
-	${CHAOS_COMPILER} -shared -fPIC -undefined dynamic_lookup math.c -o math.dylib -lm
+	${CHAOS_COMPILER} -shared -fPIC -undefined dynamic_lookup ${SPELL_NAME}.c -o ${SPELL_NAME}.dylib -lm
 
 spell:
-	mkdir -p spells/math
+	mkdir -p spells/${SPELL_NAME}
 	export GLOBIGNORE='*.c'
-	cp math.* spells/math/
+	cp ${SPELL_NAME}.* spells/${SPELL_NAME}/
 
 test: spell
 	./test.sh

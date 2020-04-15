@@ -1,13 +1,15 @@
 @ECHO OFF
 
+SET spell_name=math
+
 IF [%1]==[clang] (
-    clang -shared math.c -o math.o -lm
-    clang -c math.c
-    clang -shared -o math.dll math.o
+    clang -shared %spell_name%.c -o %spell_name%.o -lm
+    clang -c %spell_name%.c
+    clang -shared -o %spell_name%.dll %spell_name%.o
     EXIT /B 0
 ) ELSE IF [%1]==[test] (
-    IF not exist spells\math mkdir spells\math
-    COPY math.dll spells\math
+    IF not exist spells\%spell_name% mkdir spells\%spell_name%
+    COPY %spell_name%.dll spells\%spell_name%
 
     CALL test.bat
     IF errorlevel 1 (
@@ -27,7 +29,7 @@ IF [%1]==[clang] (
     EXIT /B 0
 )
 
-gcc -shared -fPIC math.c -o math.o -lm
-gcc -c math.c
-gcc -shared -o math.dll math.o -Wl,--out-implib,libmath.a
+gcc -shared -fPIC %spell_name%.c -o %spell_name%.o -lm
+gcc -c %spell_name%.c
+gcc -shared -o %spell_name%.dll %spell_name%.o -Wl,--out-implib,lib%spell_name%.a
 EXIT /B 0
