@@ -1,8 +1,8 @@
 {
-    "name": "template",
-    "version": "1.0.0",
-    "description": "Template for Chaos C extension developers.",
-    "tags": ["official", "template"],
+    "name": "math",
+    "version": "0.0.1",
+    "description": "Math library of Chaos language.",
+    "tags": ["official", "math"],
     "type": "extension",
     "license": "MIT",
     "authors": [

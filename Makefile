@@ -20,15 +20,15 @@ else
 endif
 
 build-linux:
-	${CHAOS_COMPILER} -shared -fPIC template.c -o template.so
+	${CHAOS_COMPILER} -shared -fPIC math.c -o math.so -lm
 
 build-macos:
-	${CHAOS_COMPILER} -shared -fPIC -undefined dynamic_lookup template.c -o template.dylib
+	${CHAOS_COMPILER} -shared -fPIC -undefined dynamic_lookup math.c -o math.dylib -lm
 
 spell:
-	mkdir -p spells/template
+	mkdir -p spells/math
 	export GLOBIGNORE='*.c'
-	cp template.* spells/template/
+	cp math.* spells/math/
 
 test: spell
 	./test.sh
@@ -39,5 +39,6 @@ memcheck: spell
 requirements:
 	git clone https://github.com/chaos-lang/chaos.git .chaos/ && \
 	cd .chaos/ && \
+	make requirements && \
 	make requirements-dev && \
 	rm -rf .chaos/

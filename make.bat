@@ -1,13 +1,13 @@
 @ECHO OFF
 
 IF [%1]==[clang] (
-    clang -shared template.c -o template.o
-    clang -c template.c
-    clang -shared -o template.dll template.o
+    clang -shared math.c -o math.o -lm
+    clang -c math.c
+    clang -shared -o math.dll math.o
     EXIT /B 0
 ) ELSE IF [%1]==[test] (
-    IF not exist spells\template mkdir spells\template
-    COPY template.dll spells\template
+    IF not exist spells\math mkdir spells\math
+    COPY math.dll spells\math
 
     CALL test.bat
     IF errorlevel 1 (
@@ -17,6 +17,7 @@ IF [%1]==[clang] (
 ) ELSE IF [%1]==[requirements] (
     git clone https://github.com/chaos-lang/chaos.git .chaos/
     CD .chaos\
+    CALL make.bat requirements
     CALL make.bat requirements-dev
     IF errorlevel 1 (
         EXIT /B 1
@@ -26,7 +27,7 @@ IF [%1]==[clang] (
     EXIT /B 0
 )
 
-gcc -shared -fPIC template.c -o template.o
-gcc -c template.c
-gcc -shared -o template.dll template.o -Wl,--out-implib,libtemplate.a
+gcc -shared -fPIC math.c -o math.o -lm
+gcc -c math.c
+gcc -shared -o math.dll math.o -Wl,--out-implib,libmath.a
 EXIT /B 0
