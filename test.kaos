@@ -10,6 +10,15 @@ print inf
 num nan = math.nan()
 print nan
 
+// Trigonometric functions
+print math.cos(60)
+print math.sin(30)
+print math.tan(45)
+print math.acos(0.5)
+print math.asin(0.5)
+print math.atan(1.0)
+print math.atan2(-10.0, 10.0)
+
 print math.pow(2, 3)
 print math.ceil(3.8)
 print math.ceil(-3.8)

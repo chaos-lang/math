@@ -2,14 +2,17 @@
 
 #include "Chaos.h"
 
+
 // Mathematical constants
+
+const long double pi = 3.14159265358979323846264338327950288419716939937510582097494459230781640628620899862803482534211706798214;
+const long double e = 2.71828182845904523536028747135266249775724709369995957496696762772407663035354759457138217852516642742746;
 
 char *pi_params_name[] = {};
 unsigned pi_params_type[] = {};
 unsigned short pi_params_length = 0;
 int KAOS_EXPORT Kaos_pi()
 {
-    long double pi = 3.14159265358979323846264338327950288419716939937510582097494459230781640628620899862803482534211706798214;
     kaos.returnVariableFloat(pi);
     return 0;
 }
@@ -19,7 +22,6 @@ unsigned e_params_type[] = {};
 unsigned short e_params_length = 0;
 int KAOS_EXPORT Kaos_e()
 {
-    long double e = 2.71828182845904523536028747135266249775724709369995957496696762772407663035354759457138217852516642742746;
     kaos.returnVariableFloat(e);
     return 0;
 }
@@ -41,6 +43,117 @@ int KAOS_EXPORT Kaos_nan()
 {
     long double nan = NAN;
     kaos.returnVariableFloat(nan);
+    return 0;
+}
+
+
+// Trigonometric functions
+
+char *cos_params_name[] = {
+    "x"
+};
+unsigned cos_params_type[] = {
+    K_NUMBER
+};
+unsigned short cos_params_length = (unsigned short) sizeof(cos_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_cos()
+{
+    long double x = kaos.getVariableFloat(cos_params_name[0]);
+    x = cos(x * pi / 180.0);
+    kaos.returnVariableFloat(x);
+    return 0;
+}
+
+char *sin_params_name[] = {
+    "x"
+};
+unsigned sin_params_type[] = {
+    K_NUMBER
+};
+unsigned short sin_params_length = (unsigned short) sizeof(sin_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_sin()
+{
+    long double x = kaos.getVariableFloat(cos_params_name[0]);
+    x = sin(x * pi / 180.0);
+    kaos.returnVariableFloat(x);
+    return 0;
+}
+
+char *tan_params_name[] = {
+    "x"
+};
+unsigned tan_params_type[] = {
+    K_NUMBER
+};
+unsigned short tan_params_length = (unsigned short) sizeof(tan_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_tan()
+{
+    long double x = kaos.getVariableFloat(cos_params_name[0]);
+    x = tan(x * pi / 180.0);
+    kaos.returnVariableFloat(x);
+    return 0;
+}
+
+char *acos_params_name[] = {
+    "x"
+};
+unsigned acos_params_type[] = {
+    K_NUMBER
+};
+unsigned short acos_params_length = (unsigned short) sizeof(acos_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_acos()
+{
+    long double x = kaos.getVariableFloat(cos_params_name[0]);
+    x = acos(x) * 180.0 / pi;
+    kaos.returnVariableFloat(x);
+    return 0;
+}
+
+char *asin_params_name[] = {
+    "x"
+};
+unsigned asin_params_type[] = {
+    K_NUMBER
+};
+unsigned short asin_params_length = (unsigned short) sizeof(asin_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_asin()
+{
+    long double x = kaos.getVariableFloat(cos_params_name[0]);
+    x = asin(x) * 180.0 / pi;
+    kaos.returnVariableFloat(x);
+    return 0;
+}
+
+char *atan_params_name[] = {
+    "x"
+};
+unsigned atan_params_type[] = {
+    K_NUMBER
+};
+unsigned short atan_params_length = (unsigned short) sizeof(atan_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_atan()
+{
+    long double x = kaos.getVariableFloat(cos_params_name[0]);
+    x = atan(x) * 180.0 / pi;
+    kaos.returnVariableFloat(x);
+    return 0;
+}
+
+char *atan2_params_name[] = {
+    "x",
+    "y"
+};
+unsigned atan2_params_type[] = {
+    K_NUMBER,
+    K_NUMBER
+};
+unsigned short atan2_params_length = (unsigned short) sizeof(atan2_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_atan2()
+{
+    long double x = kaos.getVariableFloat(atan2_params_name[0]);
+    long double y = kaos.getVariableFloat(atan2_params_name[1]);
+    x = atan2(y, x) * 180.0 / pi;
+    kaos.returnVariableFloat(x);
     return 0;
 }
 
@@ -146,6 +259,15 @@ int KAOS_EXPORT KaosRegister(struct Kaos _kaos)
     kaos.defineFunction("e", K_NUMBER, e_params_name, e_params_type, e_params_length);
     kaos.defineFunction("inf", K_NUMBER, inf_params_name, inf_params_type, inf_params_length);
     kaos.defineFunction("nan", K_NUMBER, nan_params_name, nan_params_type, nan_params_length);
+
+    // Trigonometric functions
+    kaos.defineFunction("cos", K_NUMBER, cos_params_name, cos_params_type, cos_params_length);
+    kaos.defineFunction("sin", K_NUMBER, sin_params_name, sin_params_type, sin_params_length);
+    kaos.defineFunction("tan", K_NUMBER, tan_params_name, tan_params_type, tan_params_length);
+    kaos.defineFunction("acos", K_NUMBER, acos_params_name, acos_params_type, acos_params_length);
+    kaos.defineFunction("asin", K_NUMBER, asin_params_name, asin_params_type, asin_params_length);
+    kaos.defineFunction("atan", K_NUMBER, atan_params_name, atan_params_type, atan_params_length);
+    kaos.defineFunction("atan2", K_NUMBER, atan2_params_name, atan2_params_type, atan2_params_length);
 
     kaos.defineFunction("pow", K_NUMBER, pow_params_name, pow_params_type, pow_params_length);
     kaos.defineFunction("ceil", K_NUMBER, ceil_params_name, ceil_params_type, ceil_params_length);
