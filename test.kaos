@@ -19,6 +19,14 @@ print math.asin(0.5)
 print math.atan(1.0)
 print math.atan2(-10.0, 10.0)
 
+// Hyperbolic functions
+print math.cosh(0.693147)
+print math.sinh(0.693147)
+print math.tanh(0.693147)
+print math.acosh(3.762196)
+print math.asinh(3.626860)
+print math.atanh(0.761594)
+
 print math.pow(2, 3)
 print math.ceil(3.8)
 print math.ceil(-3.8)

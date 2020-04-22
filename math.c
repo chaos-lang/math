@@ -157,6 +157,100 @@ int KAOS_EXPORT Kaos_atan2()
     return 0;
 }
 
+
+// Hyperbolic functions
+
+char *cosh_params_name[] = {
+    "x"
+};
+unsigned cosh_params_type[] = {
+    K_NUMBER
+};
+unsigned short cosh_params_length = (unsigned short) sizeof(cosh_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_cosh()
+{
+    long double x = kaos.getVariableFloat(cosh_params_name[0]);
+    x = cosh(x);
+    kaos.returnVariableFloat(x);
+    return 0;
+}
+
+char *sinh_params_name[] = {
+    "x"
+};
+unsigned sinh_params_type[] = {
+    K_NUMBER
+};
+unsigned short sinh_params_length = (unsigned short) sizeof(sinh_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_sinh()
+{
+    long double x = kaos.getVariableFloat(sinh_params_name[0]);
+    x = sinh(x);
+    kaos.returnVariableFloat(x);
+    return 0;
+}
+
+char *tanh_params_name[] = {
+    "x"
+};
+unsigned tanh_params_type[] = {
+    K_NUMBER
+};
+unsigned short tanh_params_length = (unsigned short) sizeof(tanh_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_tanh()
+{
+    long double x = kaos.getVariableFloat(tanh_params_name[0]);
+    x = tanh(x);
+    kaos.returnVariableFloat(x);
+    return 0;
+}
+
+char *acosh_params_name[] = {
+    "x"
+};
+unsigned acosh_params_type[] = {
+    K_NUMBER
+};
+unsigned short acosh_params_length = (unsigned short) sizeof(acosh_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_acosh()
+{
+    long double x = kaos.getVariableFloat(acosh_params_name[0]);
+    x = acosh(x);
+    kaos.returnVariableFloat(x);
+    return 0;
+}
+
+char *asinh_params_name[] = {
+    "x"
+};
+unsigned asinh_params_type[] = {
+    K_NUMBER
+};
+unsigned short asinh_params_length = (unsigned short) sizeof(asinh_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_asinh()
+{
+    long double x = kaos.getVariableFloat(asinh_params_name[0]);
+    x = asinh(x);
+    kaos.returnVariableFloat(x);
+    return 0;
+}
+
+char *atanh_params_name[] = {
+    "x"
+};
+unsigned atanh_params_type[] = {
+    K_NUMBER
+};
+unsigned short atanh_params_length = (unsigned short) sizeof(atanh_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_atanh()
+{
+    long double x = kaos.getVariableFloat(atanh_params_name[0]);
+    x = atanh(x);
+    kaos.returnVariableFloat(x);
+    return 0;
+}
+
+
 char *pow_params_name[] = {
     "x",
     "y"
@@ -268,6 +362,14 @@ int KAOS_EXPORT KaosRegister(struct Kaos _kaos)
     kaos.defineFunction("asin", K_NUMBER, asin_params_name, asin_params_type, asin_params_length);
     kaos.defineFunction("atan", K_NUMBER, atan_params_name, atan_params_type, atan_params_length);
     kaos.defineFunction("atan2", K_NUMBER, atan2_params_name, atan2_params_type, atan2_params_length);
+
+    // Hyperbolic functions
+    kaos.defineFunction("cosh", K_NUMBER, cosh_params_name, cosh_params_type, cosh_params_length);
+    kaos.defineFunction("sinh", K_NUMBER, sinh_params_name, sinh_params_type, sinh_params_length);
+    kaos.defineFunction("tanh", K_NUMBER, tanh_params_name, tanh_params_type, tanh_params_length);
+    kaos.defineFunction("acosh", K_NUMBER, acosh_params_name, acosh_params_type, acosh_params_length);
+    kaos.defineFunction("asinh", K_NUMBER, asinh_params_name, asinh_params_type, asinh_params_length);
+    kaos.defineFunction("atanh", K_NUMBER, atanh_params_name, atanh_params_type, atanh_params_length);
 
     kaos.defineFunction("pow", K_NUMBER, pow_params_name, pow_params_type, pow_params_length);
     kaos.defineFunction("ceil", K_NUMBER, ceil_params_name, ceil_params_type, ceil_params_length);
