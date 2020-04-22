@@ -1,5 +1,15 @@
 import math
 
+// Mathematical constants
+num pi = math.pi()
+print pi
+num e = math.e()
+print e
+num inf = math.inf()
+print inf
+num nan = math.nan()
+print nan
+
 print math.pow(2, 3)
 print math.ceil(3.8)
 print math.ceil(-3.8)
