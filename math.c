@@ -15,8 +15,8 @@ int KAOS_EXPORT Kaos_pow()
 {
     long double x = kaos.getVariableFloat(pow_params_name[0]);
     long double y = kaos.getVariableFloat(pow_params_name[1]);
-    long double z = pow(x ,y);
-    kaos.returnVariableFloat(z);
+    x = pow(x ,y);
+    kaos.returnVariableFloat(x);
     return 0;
 }
 
