@@ -1,3 +1,11 @@
 import math
 
 print math.pow(2, 3)
+print math.ceil(3.8)
+print math.ceil(-3.8)
+print math.floor(5.6)
+print math.floor(-5.6)
+print math.sqrt(1024)
+print math.exp(5)
+print math.abs(3.1416)
+print math.abs(-10.6)
