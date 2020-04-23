@@ -142,5 +142,11 @@ print remquo['remainder']
 echo "remquo quotient: "
 print remquo['quotient']
 
+// Floating-point manipulation functions
+str title8 = "\n\n# Floating-point manipulation functions\n"
+print title8
+echo "copysign: "
+print math.copysign(-10.0, -1.0)
+
 print math.abs(3.1416)
 print math.abs(-10.6)
