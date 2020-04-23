@@ -7,6 +7,7 @@
 
 const long double pi = 3.14159265358979323846264338327950288419716939937510582097494459230781640628620899862803482534211706798214;
 const long double e = 2.71828182845904523536028747135266249775724709369995957496696762772407663035354759457138217852516642742746;
+const long double golden_ratio = 1.61803398874989484820458683436563811772030917980576286213544862270526046281890244970720720418939113748475;
 
 char *pi_params_name[] = {};
 unsigned pi_params_type[] = {};
@@ -23,6 +24,15 @@ unsigned short e_params_length = 0;
 int KAOS_EXPORT Kaos_e()
 {
     kaos.returnVariableFloat(e);
+    return 0;
+}
+
+char *golden_ratio_params_name[] = {};
+unsigned golden_ratio_params_type[] = {};
+unsigned short golden_ratio_params_length = 0;
+int KAOS_EXPORT Kaos_golden_ratio()
+{
+    kaos.returnVariableFloat(golden_ratio);
     return 0;
 }
 
@@ -894,6 +904,7 @@ int KAOS_EXPORT KaosRegister(struct Kaos _kaos)
     // Mathematical constants
     kaos.defineFunction("pi", K_NUMBER, pi_params_name, pi_params_type, pi_params_length);
     kaos.defineFunction("e", K_NUMBER, e_params_name, e_params_type, e_params_length);
+    kaos.defineFunction("golden_ratio", K_NUMBER, golden_ratio_params_name, golden_ratio_params_type, golden_ratio_params_length);
     kaos.defineFunction("inf", K_NUMBER, inf_params_name, inf_params_type, inf_params_length);
     kaos.defineFunction("nan", K_NUMBER, nan_params_name, nan_params_type, nan_params_length);
 

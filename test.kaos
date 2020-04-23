@@ -9,6 +9,9 @@ print pi
 num e = math.e()
 echo "e: "
 print e
+num golden_ratio = math.golden_ratio()
+echo "golden_ratio: "
+print golden_ratio
 num inf = math.inf()
 echo "inf: "
 print inf

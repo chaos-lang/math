@@ -2,6 +2,7 @@
 
 pi: 3.14159
 e: 2.71828
+golden_ratio: 1.61803
 inf: inf
 nan: nan
 
