@@ -103,9 +103,44 @@ print math.gamma(0.5)
 echo "lgamma: "
 print math.lgamma(0.5)
 
+// Rounding and remainder functions
+str title7 = "\n\n# Rounding and remainder functions\n"
+print title7
+echo "ceil: "
 print math.ceil(3.8)
+echo "ceil: "
 print math.ceil(-3.8)
+echo "floor: "
 print math.floor(5.6)
+echo "floor: "
 print math.floor(-5.6)
+echo "mod: "
+print math.mod(23, 4)
+echo "fmod: "
+print math.fmod(18.5, 4.2)
+echo "trunc: "
+print math.trunc(3.8)
+echo "trunc: "
+print math.trunc(-3.8)
+echo "round: "
+print math.round(3.8)
+echo "round: "
+print math.round(-3.8)
+echo "rint: "
+print math.rint(3.8)
+echo "rint: "
+print math.rint(-3.8)
+echo "nearbyint: "
+print math.nearbyint(3.8)
+echo "nearbyint: "
+print math.nearbyint(-3.8)
+echo "remainder: "
+print math.remainder(18.5, 4.2)
+dict remquo = math.remquo(10.3, 4.5)
+echo "remquo remainder: "
+print remquo['remainder']
+echo "remquo quotient: "
+print remquo['quotient']
+
 print math.abs(3.1416)
 print math.abs(-10.6)

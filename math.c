@@ -550,6 +550,8 @@ int KAOS_EXPORT Kaos_lgamma()
 }
 
 
+// Rounding and remainder functions
+
 char *ceil_params_name[] = {
     "x"
 };
@@ -559,9 +561,9 @@ unsigned ceil_params_type[] = {
 unsigned short ceil_params_length = (unsigned short) sizeof(ceil_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_ceil()
 {
-    long double x = kaos.getVariableFloat(pow_params_name[0]);
-    x = ceil(x);
-    kaos.returnVariableFloat(x);
+    long double x = kaos.getVariableFloat(ceil_params_name[0]);
+    long long y = ceil(x);
+    kaos.returnVariableInt(y);
     return 0;
 }
 
@@ -574,11 +576,148 @@ unsigned floor_params_type[] = {
 unsigned short floor_params_length = (unsigned short) sizeof(floor_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_floor()
 {
-    long double x = kaos.getVariableFloat(pow_params_name[0]);
-    x = floor(x);
+    long double x = kaos.getVariableFloat(floor_params_name[0]);
+    long long y = floor(x);
+    kaos.returnVariableInt(y);
+    return 0;
+}
+
+char *mod_params_name[] = {
+    "x",
+    "y"
+};
+unsigned mod_params_type[] = {
+    K_NUMBER,
+    K_NUMBER
+};
+unsigned short mod_params_length = (unsigned short) sizeof(mod_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_mod()
+{
+    long long x = kaos.getVariableInt(mod_params_name[0]);
+    long long y = kaos.getVariableInt(mod_params_name[1]);
+    x = x % y;
+    kaos.returnVariableInt(x);
+    return 0;
+}
+
+char *fmod_params_name[] = {
+    "x",
+    "y"
+};
+unsigned fmod_params_type[] = {
+    K_NUMBER,
+    K_NUMBER
+};
+unsigned short fmod_params_length = (unsigned short) sizeof(fmod_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_fmod()
+{
+    long double x = kaos.getVariableFloat(fmod_params_name[0]);
+    long double y = kaos.getVariableFloat(fmod_params_name[1]);
+    x = fmod(x, y);
     kaos.returnVariableFloat(x);
     return 0;
 }
+
+char *trunc_params_name[] = {
+    "x"
+};
+unsigned trunc_params_type[] = {
+    K_NUMBER
+};
+unsigned short trunc_params_length = (unsigned short) sizeof(trunc_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_trunc()
+{
+    long double x = kaos.getVariableFloat(trunc_params_name[0]);
+    long long y = trunc(x);
+    kaos.returnVariableInt(y);
+    return 0;
+}
+
+char *round_params_name[] = {
+    "x"
+};
+unsigned round_params_type[] = {
+    K_NUMBER
+};
+unsigned short round_params_length = (unsigned short) sizeof(round_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_round()
+{
+    long double x = kaos.getVariableFloat(round_params_name[0]);
+    long long y = llround(x);
+    kaos.returnVariableInt(y);
+    return 0;
+}
+
+char *rint_params_name[] = {
+    "x"
+};
+unsigned rint_params_type[] = {
+    K_NUMBER
+};
+unsigned short rint_params_length = (unsigned short) sizeof(rint_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_rint()
+{
+    long double x = kaos.getVariableFloat(rint_params_name[0]);
+    long long y = llrint(x);
+    kaos.returnVariableInt(y);
+    return 0;
+}
+
+char *nearbyint_params_name[] = {
+    "x"
+};
+unsigned nearbyint_params_type[] = {
+    K_NUMBER
+};
+unsigned short nearbyint_params_length = (unsigned short) sizeof(nearbyint_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_nearbyint()
+{
+    long double x = kaos.getVariableFloat(nearbyint_params_name[0]);
+    long long y = nearbyint(x);
+    kaos.returnVariableInt(y);
+    return 0;
+}
+
+char *remainder_params_name[] = {
+    "x",
+    "y"
+};
+unsigned remainder_params_type[] = {
+    K_NUMBER,
+    K_NUMBER
+};
+unsigned short remainder_params_length = (unsigned short) sizeof(remainder_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_remainder()
+{
+    long double x = kaos.getVariableFloat(remainder_params_name[0]);
+    long double y = kaos.getVariableFloat(remainder_params_name[1]);
+    x = remainder(x, y);
+    kaos.returnVariableFloat(x);
+    return 0;
+}
+
+char *remquo_params_name[] = {
+    "x",
+    "y"
+};
+unsigned remquo_params_type[] = {
+    K_NUMBER,
+    K_NUMBER
+};
+unsigned short remquo_params_length = (unsigned short) sizeof(remquo_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_remquo()
+{
+    long double x = kaos.getVariableFloat(remquo_params_name[0]);
+    long double y = kaos.getVariableFloat(remquo_params_name[1]);
+    int q;
+    x = remquo(x, y, &q);
+    kaos.startBuildingDict();
+    kaos.createVariableFloat("remainder", x);
+    kaos.createVariableInt("quotient", (long long) q);
+    kaos.returnDict(K_NUMBER);
+    return 0;
+}
+
 
 char *abs_params_name[] = {
     "x"
@@ -646,8 +785,18 @@ int KAOS_EXPORT KaosRegister(struct Kaos _kaos)
     kaos.defineFunction("gamma", K_NUMBER, gamma_params_name, gamma_params_type, gamma_params_length);
     kaos.defineFunction("lgamma", K_NUMBER, lgamma_params_name, lgamma_params_type, lgamma_params_length);
 
+    // Rounding and remainder functions
     kaos.defineFunction("ceil", K_NUMBER, ceil_params_name, ceil_params_type, ceil_params_length);
     kaos.defineFunction("floor", K_NUMBER, floor_params_name, floor_params_type, floor_params_length);
+    kaos.defineFunction("mod", K_NUMBER, mod_params_name, mod_params_type, mod_params_length);
+    kaos.defineFunction("fmod", K_NUMBER, fmod_params_name, fmod_params_type, fmod_params_length);
+    kaos.defineFunction("trunc", K_NUMBER, trunc_params_name, trunc_params_type, trunc_params_length);
+    kaos.defineFunction("round", K_NUMBER, round_params_name, round_params_type, round_params_length);
+    kaos.defineFunction("rint", K_NUMBER, rint_params_name, rint_params_type, rint_params_length);
+    kaos.defineFunction("nearbyint", K_NUMBER, nearbyint_params_name, nearbyint_params_type, nearbyint_params_length);
+    kaos.defineFunction("remainder", K_NUMBER, remainder_params_name, remainder_params_type, remainder_params_length);
+    kaos.defineFunction("remquo", K_DICT, remquo_params_name, remquo_params_type, remquo_params_length);
+
     kaos.defineFunction("abs", K_NUMBER, abs_params_name, abs_params_type, abs_params_length);
 
     return 0;
