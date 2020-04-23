@@ -30,7 +30,7 @@ atanh: 1
 
 # Exponential and logarithmic functions
 
-148.413
+exp: 148.413
 frexp mantissa: 0.5
 frexp exponent: 4
 ldexp: 15.2

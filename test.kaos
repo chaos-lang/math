@@ -56,6 +56,7 @@ print math.atanh(0.761594)
 // Exponential and logarithmic functions
 str title4 = "\n\n# Exponential and logarithmic functions\n"
 print title4
+echo "exp: "
 print math.exp(5)
 dict frexp = math.frexp(8)
 echo "frexp mantissa: "
