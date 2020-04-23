@@ -148,5 +148,10 @@ print title8
 echo "copysign: "
 print math.copysign(-10.0, -1.0)
 
+// Other functions
+str title9 = "\n\n# Other functions\n"
+print title9
+echo "abs: "
 print math.abs(3.1416)
+echo "abs: "
 print math.abs(-10.6)

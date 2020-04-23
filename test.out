@@ -85,5 +85,9 @@ remquo quotient: 2
 # Floating-point manipulation functions
 
 copysign: -10
-3.1416
-10.6
+
+
+# Other functions
+
+abs: 3.1416
+abs: 10.6

@@ -59,7 +59,7 @@ unsigned short cos_params_length = (unsigned short) sizeof(cos_params_type) / si
 int KAOS_EXPORT Kaos_cos()
 {
     long double x = kaos.getVariableFloat(cos_params_name[0]);
-    x = cos(x * pi / 180.0);
+    x = cosl(x * pi / 180.0);
     kaos.returnVariableFloat(x);
     return 0;
 }
@@ -74,7 +74,7 @@ unsigned short sin_params_length = (unsigned short) sizeof(sin_params_type) / si
 int KAOS_EXPORT Kaos_sin()
 {
     long double x = kaos.getVariableFloat(sin_params_name[0]);
-    x = sin(x * pi / 180.0);
+    x = sinl(x * pi / 180.0);
     kaos.returnVariableFloat(x);
     return 0;
 }
@@ -89,7 +89,7 @@ unsigned short tan_params_length = (unsigned short) sizeof(tan_params_type) / si
 int KAOS_EXPORT Kaos_tan()
 {
     long double x = kaos.getVariableFloat(tan_params_name[0]);
-    x = tan(x * pi / 180.0);
+    x = tanl(x * pi / 180.0);
     kaos.returnVariableFloat(x);
     return 0;
 }
@@ -104,7 +104,7 @@ unsigned short acos_params_length = (unsigned short) sizeof(acos_params_type) / 
 int KAOS_EXPORT Kaos_acos()
 {
     long double x = kaos.getVariableFloat(acos_params_name[0]);
-    x = acos(x) * 180.0 / pi;
+    x = acosl(x) * 180.0 / pi;
     kaos.returnVariableFloat(x);
     return 0;
 }
@@ -119,7 +119,7 @@ unsigned short asin_params_length = (unsigned short) sizeof(asin_params_type) / 
 int KAOS_EXPORT Kaos_asin()
 {
     long double x = kaos.getVariableFloat(asin_params_name[0]);
-    x = asin(x) * 180.0 / pi;
+    x = asinl(x) * 180.0 / pi;
     kaos.returnVariableFloat(x);
     return 0;
 }
@@ -134,7 +134,7 @@ unsigned short atan_params_length = (unsigned short) sizeof(atan_params_type) / 
 int KAOS_EXPORT Kaos_atan()
 {
     long double x = kaos.getVariableFloat(atan_params_name[0]);
-    x = atan(x) * 180.0 / pi;
+    x = atanl(x) * 180.0 / pi;
     kaos.returnVariableFloat(x);
     return 0;
 }
@@ -152,7 +152,7 @@ int KAOS_EXPORT Kaos_atan2()
 {
     long double x = kaos.getVariableFloat(atan2_params_name[0]);
     long double y = kaos.getVariableFloat(atan2_params_name[1]);
-    x = atan2(y, x) * 180.0 / pi;
+    x = atan2l(y, x) * 180.0 / pi;
     kaos.returnVariableFloat(x);
     return 0;
 }
@@ -170,7 +170,7 @@ unsigned short cosh_params_length = (unsigned short) sizeof(cosh_params_type) / 
 int KAOS_EXPORT Kaos_cosh()
 {
     long double x = kaos.getVariableFloat(cosh_params_name[0]);
-    x = cosh(x);
+    x = coshl(x);
     kaos.returnVariableFloat(x);
     return 0;
 }
@@ -185,7 +185,7 @@ unsigned short sinh_params_length = (unsigned short) sizeof(sinh_params_type) / 
 int KAOS_EXPORT Kaos_sinh()
 {
     long double x = kaos.getVariableFloat(sinh_params_name[0]);
-    x = sinh(x);
+    x = sinhl(x);
     kaos.returnVariableFloat(x);
     return 0;
 }
@@ -200,7 +200,7 @@ unsigned short tanh_params_length = (unsigned short) sizeof(tanh_params_type) / 
 int KAOS_EXPORT Kaos_tanh()
 {
     long double x = kaos.getVariableFloat(tanh_params_name[0]);
-    x = tanh(x);
+    x = tanhl(x);
     kaos.returnVariableFloat(x);
     return 0;
 }
@@ -215,7 +215,7 @@ unsigned short acosh_params_length = (unsigned short) sizeof(acosh_params_type) 
 int KAOS_EXPORT Kaos_acosh()
 {
     long double x = kaos.getVariableFloat(acosh_params_name[0]);
-    x = acosh(x);
+    x = acoshl(x);
     kaos.returnVariableFloat(x);
     return 0;
 }
@@ -230,7 +230,7 @@ unsigned short asinh_params_length = (unsigned short) sizeof(asinh_params_type) 
 int KAOS_EXPORT Kaos_asinh()
 {
     long double x = kaos.getVariableFloat(asinh_params_name[0]);
-    x = asinh(x);
+    x = asinhl(x);
     kaos.returnVariableFloat(x);
     return 0;
 }
@@ -245,7 +245,7 @@ unsigned short atanh_params_length = (unsigned short) sizeof(atanh_params_type) 
 int KAOS_EXPORT Kaos_atanh()
 {
     long double x = kaos.getVariableFloat(atanh_params_name[0]);
-    x = atanh(x);
+    x = atanhl(x);
     kaos.returnVariableFloat(x);
     return 0;
 }
@@ -263,7 +263,7 @@ unsigned short exp_params_length = (unsigned short) sizeof(exp_params_type) / si
 int KAOS_EXPORT Kaos_exp()
 {
     long double x = kaos.getVariableFloat(exp_params_name[0]);
-    x = exp(x);
+    x = expl(x);
     kaos.returnVariableFloat(x);
     return 0;
 }
@@ -279,7 +279,7 @@ int KAOS_EXPORT Kaos_frexp()
 {
     long double x = kaos.getVariableFloat(frexp_params_name[0]);
     int n;
-    long double m = frexp(x , &n);
+    long double m = frexpl(x , &n);
     kaos.startBuildingDict();
     kaos.createVariableFloat("mantissa", m);
     kaos.createVariableInt("exponent", (long long) n);
@@ -300,7 +300,7 @@ int KAOS_EXPORT Kaos_ldexp()
 {
     long double m = kaos.getVariableFloat(ldexp_params_name[0]);
     long double n = kaos.getVariableFloat(ldexp_params_name[1]);
-    m = ldexp(m ,n);
+    m = ldexpl(m ,n);
     kaos.returnVariableFloat(m);
     return 0;
 }
@@ -315,7 +315,7 @@ unsigned short ln_params_length = (unsigned short) sizeof(ln_params_type) / size
 int KAOS_EXPORT Kaos_ln()
 {
     long double x = kaos.getVariableFloat(ln_params_name[0]);
-    x = log(x);
+    x = logl(x);
     kaos.returnVariableFloat(x);
     return 0;
 }
@@ -333,7 +333,7 @@ int KAOS_EXPORT Kaos_log()
 {
     long double x = kaos.getVariableFloat(log_params_name[0]);
     long double b = kaos.getVariableFloat(log_params_name[1]);
-    x = log(x) / log(b);
+    x = logl(x) / logl(b);
     kaos.returnVariableFloat(x);
     return 0;
 }
@@ -348,7 +348,7 @@ unsigned short log1p_params_length = (unsigned short) sizeof(log1p_params_type) 
 int KAOS_EXPORT Kaos_log1p()
 {
     long double x = kaos.getVariableFloat(log1p_params_name[0]);
-    x = log1p(x);
+    x = log1pl(x);
     kaos.returnVariableFloat(x);
     return 0;
 }
@@ -363,7 +363,7 @@ unsigned short log2_params_length = (unsigned short) sizeof(log2_params_type) / 
 int KAOS_EXPORT Kaos_log2()
 {
     long double x = kaos.getVariableFloat(log2_params_name[0]);
-    x = log2(x);
+    x = log2l(x);
     kaos.returnVariableFloat(x);
     return 0;
 }
@@ -378,7 +378,7 @@ unsigned short log10_params_length = (unsigned short) sizeof(log10_params_type) 
 int KAOS_EXPORT Kaos_log10()
 {
     long double x = kaos.getVariableFloat(log10_params_name[0]);
-    x = log10(x);
+    x = log10l(x);
     kaos.returnVariableFloat(x);
     return 0;
 }
@@ -393,8 +393,8 @@ unsigned short modf_params_length = (unsigned short) sizeof(modf_params_type) / 
 int KAOS_EXPORT Kaos_modf()
 {
     long double x = kaos.getVariableFloat(modf_params_name[0]);
-    double i;
-    long double f = modf(x , &i);
+    long double i;
+    long double f = modfl(x , &i);
     kaos.startBuildingDict();
     kaos.createVariableInt("integer", (long long) i);
     kaos.createVariableFloat("fraction", f);
@@ -412,7 +412,7 @@ unsigned short expm1_params_length = (unsigned short) sizeof(expm1_params_type) 
 int KAOS_EXPORT Kaos_expm1()
 {
     long double x = kaos.getVariableFloat(expm1_params_name[0]);
-    x = expm1(x);
+    x = expm1l(x);
     kaos.returnVariableFloat(x);
     return 0;
 }
@@ -433,7 +433,7 @@ int KAOS_EXPORT Kaos_pow()
 {
     long double x = kaos.getVariableFloat(pow_params_name[0]);
     long double y = kaos.getVariableFloat(pow_params_name[1]);
-    x = pow(x ,y);
+    x = powl(x ,y);
     kaos.returnVariableFloat(x);
     return 0;
 }
@@ -448,7 +448,7 @@ unsigned short sqrt_params_length = (unsigned short) sizeof(sqrt_params_type) / 
 int KAOS_EXPORT Kaos_sqrt()
 {
     long double x = kaos.getVariableFloat(sqrt_params_name[0]);
-    x = sqrt(x);
+    x = sqrtl(x);
     kaos.returnVariableFloat(x);
     return 0;
 }
@@ -463,7 +463,7 @@ unsigned short cbrt_params_length = (unsigned short) sizeof(cbrt_params_type) / 
 int KAOS_EXPORT Kaos_cbrt()
 {
     long double x = kaos.getVariableFloat(cbrt_params_name[0]);
-    x = cbrt(x);
+    x = cbrtl(x);
     kaos.returnVariableFloat(x);
     return 0;
 }
@@ -481,7 +481,7 @@ int KAOS_EXPORT Kaos_hypot()
 {
     long double x = kaos.getVariableFloat(hypot_params_name[0]);
     long double y = kaos.getVariableFloat(hypot_params_name[1]);
-    x = hypot(x ,y);
+    x = hypotl(x ,y);
     kaos.returnVariableFloat(x);
     return 0;
 }
@@ -499,7 +499,7 @@ unsigned short erf_params_length = (unsigned short) sizeof(erf_params_type) / si
 int KAOS_EXPORT Kaos_erf()
 {
     long double x = kaos.getVariableFloat(erf_params_name[0]);
-    x = erf(x);
+    x = erfl(x);
     kaos.returnVariableFloat(x);
     return 0;
 }
@@ -514,7 +514,7 @@ unsigned short erfc_params_length = (unsigned short) sizeof(erfc_params_type) / 
 int KAOS_EXPORT Kaos_erfc()
 {
     long double x = kaos.getVariableFloat(erfc_params_name[0]);
-    x = erfc(x);
+    x = erfcl(x);
     kaos.returnVariableFloat(x);
     return 0;
 }
@@ -529,7 +529,7 @@ unsigned short gamma_params_length = (unsigned short) sizeof(gamma_params_type) 
 int KAOS_EXPORT Kaos_gamma()
 {
     long double x = kaos.getVariableFloat(gamma_params_name[0]);
-    x = tgamma(x);
+    x = tgammal(x);
     kaos.returnVariableFloat(x);
     return 0;
 }
@@ -544,7 +544,7 @@ unsigned short lgamma_params_length = (unsigned short) sizeof(lgamma_params_type
 int KAOS_EXPORT Kaos_lgamma()
 {
     long double x = kaos.getVariableFloat(lgamma_params_name[0]);
-    x = lgamma(x);
+    x = lgammal(x);
     kaos.returnVariableFloat(x);
     return 0;
 }
@@ -562,7 +562,7 @@ unsigned short ceil_params_length = (unsigned short) sizeof(ceil_params_type) / 
 int KAOS_EXPORT Kaos_ceil()
 {
     long double x = kaos.getVariableFloat(ceil_params_name[0]);
-    long long y = ceil(x);
+    long long y = (long long) ceill(x);
     kaos.returnVariableInt(y);
     return 0;
 }
@@ -577,7 +577,7 @@ unsigned short floor_params_length = (unsigned short) sizeof(floor_params_type) 
 int KAOS_EXPORT Kaos_floor()
 {
     long double x = kaos.getVariableFloat(floor_params_name[0]);
-    long long y = floor(x);
+    long long y = (long long) floorl(x);
     kaos.returnVariableInt(y);
     return 0;
 }
@@ -613,7 +613,7 @@ int KAOS_EXPORT Kaos_fmod()
 {
     long double x = kaos.getVariableFloat(fmod_params_name[0]);
     long double y = kaos.getVariableFloat(fmod_params_name[1]);
-    x = fmod(x, y);
+    x = fmodl(x, y);
     kaos.returnVariableFloat(x);
     return 0;
 }
@@ -628,7 +628,7 @@ unsigned short trunc_params_length = (unsigned short) sizeof(trunc_params_type) 
 int KAOS_EXPORT Kaos_trunc()
 {
     long double x = kaos.getVariableFloat(trunc_params_name[0]);
-    long long y = trunc(x);
+    long long y = (long long) truncl(x);
     kaos.returnVariableInt(y);
     return 0;
 }
@@ -643,7 +643,7 @@ unsigned short round_params_length = (unsigned short) sizeof(round_params_type) 
 int KAOS_EXPORT Kaos_round()
 {
     long double x = kaos.getVariableFloat(round_params_name[0]);
-    long long y = llround(x);
+    long long y = llroundl(x);
     kaos.returnVariableInt(y);
     return 0;
 }
@@ -658,7 +658,7 @@ unsigned short rint_params_length = (unsigned short) sizeof(rint_params_type) / 
 int KAOS_EXPORT Kaos_rint()
 {
     long double x = kaos.getVariableFloat(rint_params_name[0]);
-    long long y = llrint(x);
+    long long y = llrintl(x);
     kaos.returnVariableInt(y);
     return 0;
 }
@@ -673,7 +673,7 @@ unsigned short nearbyint_params_length = (unsigned short) sizeof(nearbyint_param
 int KAOS_EXPORT Kaos_nearbyint()
 {
     long double x = kaos.getVariableFloat(nearbyint_params_name[0]);
-    long long y = nearbyint(x);
+    long long y = (long long) nearbyintl(x);
     kaos.returnVariableInt(y);
     return 0;
 }
@@ -691,7 +691,7 @@ int KAOS_EXPORT Kaos_remainder()
 {
     long double x = kaos.getVariableFloat(remainder_params_name[0]);
     long double y = kaos.getVariableFloat(remainder_params_name[1]);
-    x = remainder(x, y);
+    x = remainderl(x, y);
     kaos.returnVariableFloat(x);
     return 0;
 }
@@ -710,7 +710,7 @@ int KAOS_EXPORT Kaos_remquo()
     long double x = kaos.getVariableFloat(remquo_params_name[0]);
     long double y = kaos.getVariableFloat(remquo_params_name[1]);
     int q;
-    x = remquo(x, y, &q);
+    x = remquol(x, y, &q);
     kaos.startBuildingDict();
     kaos.createVariableFloat("remainder", x);
     kaos.createVariableInt("quotient", (long long) q);
@@ -734,7 +734,7 @@ int KAOS_EXPORT Kaos_copysign()
 {
     long double x = kaos.getVariableFloat(copysign_params_name[0]);
     long double y = kaos.getVariableFloat(copysign_params_name[1]);
-    x = copysign(x ,y);
+    x = copysignl(x ,y);
     kaos.returnVariableFloat(x);
     return 0;
 }
@@ -776,6 +776,8 @@ int KAOS_EXPORT Kaos_nexttoward()
 }
 
 
+// Other functions
+
 char *abs_params_name[] = {
     "x"
 };
@@ -786,7 +788,7 @@ unsigned short abs_params_length = (unsigned short) sizeof(abs_params_type) / si
 int KAOS_EXPORT Kaos_abs()
 {
     long double x = kaos.getVariableFloat(abs_params_name[0]);
-    x = fabs((double) x);
+    x = fabsl(x);
     kaos.returnVariableFloat(x);
     return 0;
 }
@@ -859,7 +861,7 @@ int KAOS_EXPORT KaosRegister(struct Kaos _kaos)
     kaos.defineFunction("nextafter", K_NUMBER, nextafter_params_name, nextafter_params_type, nextafter_params_length);
     kaos.defineFunction("nexttoward", K_NUMBER, nexttoward_params_name, nexttoward_params_type, nexttoward_params_length);
 
-
+    // Other functions
     kaos.defineFunction("abs", K_NUMBER, abs_params_name, abs_params_type, abs_params_length);
 
     return 0;
