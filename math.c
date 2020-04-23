@@ -418,6 +418,8 @@ int KAOS_EXPORT Kaos_expm1()
 }
 
 
+// Power functions
+
 char *pow_params_name[] = {
     "x",
     "y"
@@ -435,6 +437,55 @@ int KAOS_EXPORT Kaos_pow()
     kaos.returnVariableFloat(x);
     return 0;
 }
+
+char *sqrt_params_name[] = {
+    "x"
+};
+unsigned sqrt_params_type[] = {
+    K_NUMBER
+};
+unsigned short sqrt_params_length = (unsigned short) sizeof(sqrt_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_sqrt()
+{
+    long double x = kaos.getVariableFloat(sqrt_params_name[0]);
+    x = sqrt(x);
+    kaos.returnVariableFloat(x);
+    return 0;
+}
+
+char *cbrt_params_name[] = {
+    "x"
+};
+unsigned cbrt_params_type[] = {
+    K_NUMBER
+};
+unsigned short cbrt_params_length = (unsigned short) sizeof(cbrt_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_cbrt()
+{
+    long double x = kaos.getVariableFloat(cbrt_params_name[0]);
+    x = cbrt(x);
+    kaos.returnVariableFloat(x);
+    return 0;
+}
+
+char *hypot_params_name[] = {
+    "x",
+    "y"
+};
+unsigned hypot_params_type[] = {
+    K_NUMBER,
+    K_NUMBER
+};
+unsigned short hypot_params_length = (unsigned short) sizeof(hypot_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_hypot()
+{
+    long double x = kaos.getVariableFloat(hypot_params_name[0]);
+    long double y = kaos.getVariableFloat(hypot_params_name[1]);
+    x = hypot(x ,y);
+    kaos.returnVariableFloat(x);
+    return 0;
+}
+
 
 char *ceil_params_name[] = {
     "x"
@@ -462,21 +513,6 @@ int KAOS_EXPORT Kaos_floor()
 {
     long double x = kaos.getVariableFloat(pow_params_name[0]);
     x = floor(x);
-    kaos.returnVariableFloat(x);
-    return 0;
-}
-
-char *sqrt_params_name[] = {
-    "x"
-};
-unsigned sqrt_params_type[] = {
-    K_NUMBER
-};
-unsigned short sqrt_params_length = (unsigned short) sizeof(sqrt_params_type) / sizeof(unsigned);
-int KAOS_EXPORT Kaos_sqrt()
-{
-    long double x = kaos.getVariableFloat(pow_params_name[0]);
-    x = sqrt(x);
     kaos.returnVariableFloat(x);
     return 0;
 }
@@ -535,10 +571,14 @@ int KAOS_EXPORT KaosRegister(struct Kaos _kaos)
     kaos.defineFunction("modf", K_DICT, modf_params_name, modf_params_type, modf_params_length);
     kaos.defineFunction("expm1", K_NUMBER, expm1_params_name, expm1_params_type, expm1_params_length);
 
+    // Power functions
     kaos.defineFunction("pow", K_NUMBER, pow_params_name, pow_params_type, pow_params_length);
+    kaos.defineFunction("sqrt", K_NUMBER, sqrt_params_name, sqrt_params_type, sqrt_params_length);
+    kaos.defineFunction("cbrt", K_NUMBER, cbrt_params_name, cbrt_params_type, cbrt_params_length);
+    kaos.defineFunction("hypot", K_NUMBER, hypot_params_name, hypot_params_type, hypot_params_length);
+
     kaos.defineFunction("ceil", K_NUMBER, ceil_params_name, ceil_params_type, ceil_params_length);
     kaos.defineFunction("floor", K_NUMBER, floor_params_name, floor_params_type, floor_params_length);
-    kaos.defineFunction("sqrt", K_NUMBER, sqrt_params_name, sqrt_params_type, sqrt_params_length);
     kaos.defineFunction("abs", K_NUMBER, abs_params_name, abs_params_type, abs_params_length);
 
     return 0;

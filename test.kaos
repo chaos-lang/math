@@ -79,11 +79,21 @@ print modf['fraction']
 echo "expm1: "
 print math.expm1(1.0)
 
+// Power functions
+str title5 = "\n\n# Power functions\n"
+print title5
+echo "pow: "
 print math.pow(2, 3)
+echo "sqrt: "
+print math.sqrt(1024)
+echo "cbrt: "
+print math.cbrt(27)
+echo "hypot: "
+print math.hypot(3.0, 4.0)
+
 print math.ceil(3.8)
 print math.ceil(-3.8)
 print math.floor(5.6)
 print math.floor(-5.6)
-print math.sqrt(1024)
 print math.abs(3.1416)
 print math.abs(-10.6)

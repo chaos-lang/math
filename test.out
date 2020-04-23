@@ -43,11 +43,17 @@ log10: 3
 modf integer: 3
 modf fraction: 0.141593
 expm1: 1.71828
-8
+
+
+# Power functions
+
+pow: 8
+sqrt: 32
+cbrt: 3
+hypot: 5
 4
 -3
 5
 -6
-32
 3.1416
 10.6
