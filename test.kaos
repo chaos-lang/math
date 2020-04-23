@@ -1,7 +1,7 @@
 import math
 
 // Mathematical constants
-str title1 = "\n\n# Mathematical constants\n"
+str title1 = "# Mathematical constants\n"
 print title1
 num pi = math.pi()
 echo "pi: "
@@ -155,3 +155,34 @@ echo "abs: "
 print math.abs(3.1416)
 echo "abs: "
 print math.abs(-10.6)
+
+// Boolean functions
+str title10 = "\n\n# Boolean functions\n"
+print title10
+echo "is_finite: "
+print math.is_finite(0.0)
+echo "is_finite: "
+print math.is_finite(1.0 / 0.0)
+echo "is_inf: "
+print math.is_inf(0.0)
+echo "is_inf: "
+print math.is_inf(1.0 / 0.0)
+echo "is_nan: "
+print math.is_nan(0.0)
+echo "is_nan: "
+num nan_example = math.sqrt(-1.0)
+print math.is_nan(nan_example)
+echo "is_normal: "
+print math.is_normal(1.0)
+echo "is_normal: "
+print math.is_normal(0.0)
+echo "is_normal: "
+print math.is_normal(1.0 / 0.0)
+echo "is_positive: "
+print math.is_positive(1.0)
+echo "is_positive: "
+print math.is_positive(-1.0)
+echo "is_negative: "
+print math.is_negative(1.0)
+echo "is_negative: "
+print math.is_negative(-1.0)

@@ -793,6 +793,100 @@ int KAOS_EXPORT Kaos_abs()
     return 0;
 }
 
+
+// Boolean functions
+
+char *is_finite_params_name[] = {
+    "x"
+};
+unsigned is_finite_params_type[] = {
+    K_NUMBER
+};
+unsigned short is_finite_params_length = (unsigned short) sizeof(is_finite_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_is_finite()
+{
+    long double x = kaos.getVariableFloat(is_finite_params_name[0]);
+    bool b = (bool) isfinite(x);
+    kaos.returnVariableBool(b);
+    return 0;
+}
+
+char *is_inf_params_name[] = {
+    "x"
+};
+unsigned is_inf_params_type[] = {
+    K_NUMBER
+};
+unsigned short is_inf_params_length = (unsigned short) sizeof(is_inf_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_is_inf()
+{
+    long double x = kaos.getVariableFloat(is_inf_params_name[0]);
+    bool b = (bool) isinf(x);
+    kaos.returnVariableBool(b);
+    return 0;
+}
+
+char *is_nan_params_name[] = {
+    "x"
+};
+unsigned is_nan_params_type[] = {
+    K_NUMBER
+};
+unsigned short is_nan_params_length = (unsigned short) sizeof(is_nan_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_is_nan()
+{
+    long double x = kaos.getVariableFloat(is_nan_params_name[0]);
+    bool b = (bool) isnan(x);
+    kaos.returnVariableBool(b);
+    return 0;
+}
+
+char *is_normal_params_name[] = {
+    "x"
+};
+unsigned is_normal_params_type[] = {
+    K_NUMBER
+};
+unsigned short is_normal_params_length = (unsigned short) sizeof(is_normal_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_is_normal()
+{
+    long double x = kaos.getVariableFloat(is_normal_params_name[0]);
+    bool b = (bool) isnormal(x);
+    kaos.returnVariableBool(b);
+    return 0;
+}
+
+char *is_positive_params_name[] = {
+    "x"
+};
+unsigned is_positive_params_type[] = {
+    K_NUMBER
+};
+unsigned short is_positive_params_length = (unsigned short) sizeof(is_positive_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_is_positive()
+{
+    long double x = kaos.getVariableFloat(is_positive_params_name[0]);
+    bool b = ! (bool) signbit(x);
+    kaos.returnVariableBool(b);
+    return 0;
+}
+
+char *is_negative_params_name[] = {
+    "x"
+};
+unsigned is_negative_params_type[] = {
+    K_NUMBER
+};
+unsigned short is_negative_params_length = (unsigned short) sizeof(is_negative_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_is_negative()
+{
+    long double x = kaos.getVariableFloat(is_negative_params_name[0]);
+    bool b = (bool) signbit(x);
+    kaos.returnVariableBool(b);
+    return 0;
+}
+
+
 int KAOS_EXPORT KaosRegister(struct Kaos _kaos)
 {
     kaos = _kaos;
@@ -863,6 +957,14 @@ int KAOS_EXPORT KaosRegister(struct Kaos _kaos)
 
     // Other functions
     kaos.defineFunction("abs", K_NUMBER, abs_params_name, abs_params_type, abs_params_length);
+
+    // Boolean functions
+    kaos.defineFunction("is_finite", K_BOOL, is_finite_params_name, is_finite_params_type, is_finite_params_length);
+    kaos.defineFunction("is_inf", K_BOOL, is_inf_params_name, is_inf_params_type, is_inf_params_length);
+    kaos.defineFunction("is_nan", K_BOOL, is_nan_params_name, is_nan_params_type, is_nan_params_length);
+    kaos.defineFunction("is_normal", K_BOOL, is_normal_params_name, is_normal_params_type, is_normal_params_length);
+    kaos.defineFunction("is_positive", K_BOOL, is_positive_params_name, is_positive_params_type, is_positive_params_length);
+    kaos.defineFunction("is_negative", K_BOOL, is_negative_params_name, is_negative_params_type, is_negative_params_length);
 
     return 0;
 }
