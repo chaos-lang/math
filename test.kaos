@@ -91,6 +91,18 @@ print math.cbrt(27)
 echo "hypot: "
 print math.hypot(3.0, 4.0)
 
+// Error and gamma functions
+str title6 = "\n\n# Error and gamma functions\n"
+print title6
+echo "erf: "
+print math.erf(1.0)
+echo "erfc: "
+print math.erfc(1.0)
+echo "gamma: "
+print math.gamma(0.5)
+echo "lgamma: "
+print math.lgamma(0.5)
+
 print math.ceil(3.8)
 print math.ceil(-3.8)
 print math.floor(5.6)

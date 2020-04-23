@@ -487,6 +487,69 @@ int KAOS_EXPORT Kaos_hypot()
 }
 
 
+// Error and gamma functions
+
+char *erf_params_name[] = {
+    "x"
+};
+unsigned erf_params_type[] = {
+    K_NUMBER
+};
+unsigned short erf_params_length = (unsigned short) sizeof(erf_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_erf()
+{
+    long double x = kaos.getVariableFloat(erf_params_name[0]);
+    x = erf(x);
+    kaos.returnVariableFloat(x);
+    return 0;
+}
+
+char *erfc_params_name[] = {
+    "x"
+};
+unsigned erfc_params_type[] = {
+    K_NUMBER
+};
+unsigned short erfc_params_length = (unsigned short) sizeof(erfc_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_erfc()
+{
+    long double x = kaos.getVariableFloat(erfc_params_name[0]);
+    x = erfc(x);
+    kaos.returnVariableFloat(x);
+    return 0;
+}
+
+char *gamma_params_name[] = {
+    "x"
+};
+unsigned gamma_params_type[] = {
+    K_NUMBER
+};
+unsigned short gamma_params_length = (unsigned short) sizeof(gamma_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_gamma()
+{
+    long double x = kaos.getVariableFloat(gamma_params_name[0]);
+    x = tgamma(x);
+    kaos.returnVariableFloat(x);
+    return 0;
+}
+
+char *lgamma_params_name[] = {
+    "x"
+};
+unsigned lgamma_params_type[] = {
+    K_NUMBER
+};
+unsigned short lgamma_params_length = (unsigned short) sizeof(lgamma_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_lgamma()
+{
+    long double x = kaos.getVariableFloat(lgamma_params_name[0]);
+    x = lgamma(x);
+    kaos.returnVariableFloat(x);
+    return 0;
+}
+
+
 char *ceil_params_name[] = {
     "x"
 };
@@ -576,6 +639,12 @@ int KAOS_EXPORT KaosRegister(struct Kaos _kaos)
     kaos.defineFunction("sqrt", K_NUMBER, sqrt_params_name, sqrt_params_type, sqrt_params_length);
     kaos.defineFunction("cbrt", K_NUMBER, cbrt_params_name, cbrt_params_type, cbrt_params_length);
     kaos.defineFunction("hypot", K_NUMBER, hypot_params_name, hypot_params_type, hypot_params_length);
+
+    // Error and gamma functions
+    kaos.defineFunction("erf", K_NUMBER, erf_params_name, erf_params_type, erf_params_length);
+    kaos.defineFunction("erfc", K_NUMBER, erfc_params_name, erfc_params_type, erfc_params_length);
+    kaos.defineFunction("gamma", K_NUMBER, gamma_params_name, gamma_params_type, gamma_params_length);
+    kaos.defineFunction("lgamma", K_NUMBER, lgamma_params_name, lgamma_params_type, lgamma_params_length);
 
     kaos.defineFunction("ceil", K_NUMBER, ceil_params_name, ceil_params_type, ceil_params_length);
     kaos.defineFunction("floor", K_NUMBER, floor_params_name, floor_params_type, floor_params_length);

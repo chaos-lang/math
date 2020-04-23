@@ -51,6 +51,14 @@ pow: 8
 sqrt: 32
 cbrt: 3
 hypot: 5
+
+
+# Error and gamma functions
+
+erf: 0.842701
+erfc: 0.157299
+gamma: 1.77245
+lgamma: 0.572365
 4
 -3
 5
