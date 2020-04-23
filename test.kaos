@@ -1,31 +1,83 @@
 import math
 
 // Mathematical constants
+str title1 = "\n\n# Mathematical constants\n"
+print title1
 num pi = math.pi()
+echo "pi: "
 print pi
 num e = math.e()
+echo "e: "
 print e
 num inf = math.inf()
+echo "inf: "
 print inf
 num nan = math.nan()
+echo "nan: "
 print nan
 
 // Trigonometric functions
+str title2 = "\n\n# Trigonometric functions\n"
+print title2
+echo "cos: "
 print math.cos(60)
+echo "sin: "
 print math.sin(30)
+echo "tan: "
 print math.tan(45)
+echo "acos: "
 print math.acos(0.5)
+echo "asin: "
 print math.asin(0.5)
+echo "atan: "
 print math.atan(1.0)
+echo "atan2: "
 print math.atan2(-10.0, 10.0)
 
 // Hyperbolic functions
+str title3 = "\n\n# Hyperbolic functions\n"
+print title3
+echo "cosh: "
 print math.cosh(0.693147)
+echo "sinh: "
 print math.sinh(0.693147)
+echo "tanh: "
 print math.tanh(0.693147)
+echo "acosh: "
 print math.acosh(3.762196)
+echo "asinh: "
 print math.asinh(3.626860)
+echo "atanh: "
 print math.atanh(0.761594)
+
+// Exponential and logarithmic functions
+str title4 = "\n\n# Exponential and logarithmic functions\n"
+print title4
+print math.exp(5)
+dict frexp = math.frexp(8)
+echo "frexp mantissa: "
+print frexp['mantissa']
+echo "frexp exponent: "
+print frexp['exponent']
+echo "ldexp: "
+print math.ldexp(0.95, 4)
+echo "ln: "
+print math.ln(5.5)
+echo "log: "
+print math.log(81, 3)
+echo "log1p: "
+print math.log1p(1.0)
+echo "log2: "
+print math.log2(1024.0)
+echo "log10: "
+print math.log10(1000)
+dict modf = math.modf(3.141593)
+echo "modf integer: "
+print modf['integer']
+echo "modf fraction: "
+print modf['fraction']
+echo "expm1: "
+print math.expm1(1.0)
 
 print math.pow(2, 3)
 print math.ceil(3.8)
@@ -33,6 +85,5 @@ print math.ceil(-3.8)
 print math.floor(5.6)
 print math.floor(-5.6)
 print math.sqrt(1024)
-print math.exp(5)
 print math.abs(3.1416)
 print math.abs(-10.6)

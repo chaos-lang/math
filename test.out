@@ -1,26 +1,53 @@
-3.14159
-2.71828
-inf
-nan
-0.5
-0.5
-1
-60
-30
-45
-135
-1.25
-0.75
-0.6
-2
-2
-1
+
+
+# Mathematical constants
+
+pi: 3.14159
+e: 2.71828
+inf: inf
+nan: nan
+
+
+# Trigonometric functions
+
+cos: 0.5
+sin: 0.5
+tan: 1
+acos: 60
+asin: 30
+atan: 45
+atan2: 135
+
+
+# Hyperbolic functions
+
+cosh: 1.25
+sinh: 0.75
+tanh: 0.6
+acosh: 2
+asinh: 2
+atanh: 1
+
+
+# Exponential and logarithmic functions
+
+148.413
+frexp mantissa: 0.5
+frexp exponent: 4
+ldexp: 15.2
+ln: 1.70475
+log: 4
+log1p: 0.693147
+log2: 10
+log10: 3
+modf integer: 3
+modf fraction: 0.141593
+expm1: 1.71828
 8
 4
 -3
 5
 -6
 32
-148.413
 3.1416
 10.6

@@ -73,7 +73,7 @@ unsigned sin_params_type[] = {
 unsigned short sin_params_length = (unsigned short) sizeof(sin_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_sin()
 {
-    long double x = kaos.getVariableFloat(cos_params_name[0]);
+    long double x = kaos.getVariableFloat(sin_params_name[0]);
     x = sin(x * pi / 180.0);
     kaos.returnVariableFloat(x);
     return 0;
@@ -88,7 +88,7 @@ unsigned tan_params_type[] = {
 unsigned short tan_params_length = (unsigned short) sizeof(tan_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_tan()
 {
-    long double x = kaos.getVariableFloat(cos_params_name[0]);
+    long double x = kaos.getVariableFloat(tan_params_name[0]);
     x = tan(x * pi / 180.0);
     kaos.returnVariableFloat(x);
     return 0;
@@ -103,7 +103,7 @@ unsigned acos_params_type[] = {
 unsigned short acos_params_length = (unsigned short) sizeof(acos_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_acos()
 {
-    long double x = kaos.getVariableFloat(cos_params_name[0]);
+    long double x = kaos.getVariableFloat(acos_params_name[0]);
     x = acos(x) * 180.0 / pi;
     kaos.returnVariableFloat(x);
     return 0;
@@ -118,7 +118,7 @@ unsigned asin_params_type[] = {
 unsigned short asin_params_length = (unsigned short) sizeof(asin_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_asin()
 {
-    long double x = kaos.getVariableFloat(cos_params_name[0]);
+    long double x = kaos.getVariableFloat(asin_params_name[0]);
     x = asin(x) * 180.0 / pi;
     kaos.returnVariableFloat(x);
     return 0;
@@ -133,7 +133,7 @@ unsigned atan_params_type[] = {
 unsigned short atan_params_length = (unsigned short) sizeof(atan_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_atan()
 {
-    long double x = kaos.getVariableFloat(cos_params_name[0]);
+    long double x = kaos.getVariableFloat(atan_params_name[0]);
     x = atan(x) * 180.0 / pi;
     kaos.returnVariableFloat(x);
     return 0;
@@ -251,6 +251,173 @@ int KAOS_EXPORT Kaos_atanh()
 }
 
 
+// Exponential and logarithmic functions
+
+char *exp_params_name[] = {
+    "x"
+};
+unsigned exp_params_type[] = {
+    K_NUMBER
+};
+unsigned short exp_params_length = (unsigned short) sizeof(exp_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_exp()
+{
+    long double x = kaos.getVariableFloat(exp_params_name[0]);
+    x = exp(x);
+    kaos.returnVariableFloat(x);
+    return 0;
+}
+
+char *frexp_params_name[] = {
+    "x"
+};
+unsigned frexp_params_type[] = {
+    K_NUMBER
+};
+unsigned short frexp_params_length = (unsigned short) sizeof(frexp_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_frexp()
+{
+    long double x = kaos.getVariableFloat(frexp_params_name[0]);
+    int n;
+    long double m = frexp(x , &n);
+    kaos.startBuildingDict();
+    kaos.createVariableFloat("mantissa", m);
+    kaos.createVariableInt("exponent", (long long) n);
+    kaos.returnDict(K_NUMBER);
+    return 0;
+}
+
+char *ldexp_params_name[] = {
+    "m",
+    "n"
+};
+unsigned ldexp_params_type[] = {
+    K_NUMBER,
+    K_NUMBER
+};
+unsigned short ldexp_params_length = (unsigned short) sizeof(ldexp_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_ldexp()
+{
+    long double m = kaos.getVariableFloat(ldexp_params_name[0]);
+    long double n = kaos.getVariableFloat(ldexp_params_name[1]);
+    m = ldexp(m ,n);
+    kaos.returnVariableFloat(m);
+    return 0;
+}
+
+char *ln_params_name[] = {
+    "x"
+};
+unsigned ln_params_type[] = {
+    K_NUMBER
+};
+unsigned short ln_params_length = (unsigned short) sizeof(ln_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_ln()
+{
+    long double x = kaos.getVariableFloat(ln_params_name[0]);
+    x = log(x);
+    kaos.returnVariableFloat(x);
+    return 0;
+}
+
+char *log_params_name[] = {
+    "x",
+    "b"
+};
+unsigned log_params_type[] = {
+    K_NUMBER,
+    K_NUMBER
+};
+unsigned short log_params_length = (unsigned short) sizeof(log_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_log()
+{
+    long double x = kaos.getVariableFloat(log_params_name[0]);
+    long double b = kaos.getVariableFloat(log_params_name[1]);
+    x = log(x) / log(b);
+    kaos.returnVariableFloat(x);
+    return 0;
+}
+
+char *log1p_params_name[] = {
+    "x"
+};
+unsigned log1p_params_type[] = {
+    K_NUMBER
+};
+unsigned short log1p_params_length = (unsigned short) sizeof(log1p_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_log1p()
+{
+    long double x = kaos.getVariableFloat(log1p_params_name[0]);
+    x = log1p(x);
+    kaos.returnVariableFloat(x);
+    return 0;
+}
+
+char *log2_params_name[] = {
+    "x"
+};
+unsigned log2_params_type[] = {
+    K_NUMBER
+};
+unsigned short log2_params_length = (unsigned short) sizeof(log2_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_log2()
+{
+    long double x = kaos.getVariableFloat(log2_params_name[0]);
+    x = log2(x);
+    kaos.returnVariableFloat(x);
+    return 0;
+}
+
+char *log10_params_name[] = {
+    "x"
+};
+unsigned log10_params_type[] = {
+    K_NUMBER
+};
+unsigned short log10_params_length = (unsigned short) sizeof(log10_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_log10()
+{
+    long double x = kaos.getVariableFloat(log10_params_name[0]);
+    x = log10(x);
+    kaos.returnVariableFloat(x);
+    return 0;
+}
+
+char *modf_params_name[] = {
+    "x"
+};
+unsigned modf_params_type[] = {
+    K_NUMBER
+};
+unsigned short modf_params_length = (unsigned short) sizeof(modf_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_modf()
+{
+    long double x = kaos.getVariableFloat(modf_params_name[0]);
+    double i;
+    long double f = modf(x , &i);
+    kaos.startBuildingDict();
+    kaos.createVariableInt("integer", (long long) i);
+    kaos.createVariableFloat("fraction", f);
+    kaos.returnDict(K_NUMBER);
+    return 0;
+}
+
+char *expm1_params_name[] = {
+    "x"
+};
+unsigned expm1_params_type[] = {
+    K_NUMBER
+};
+unsigned short expm1_params_length = (unsigned short) sizeof(expm1_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_expm1()
+{
+    long double x = kaos.getVariableFloat(expm1_params_name[0]);
+    x = expm1(x);
+    kaos.returnVariableFloat(x);
+    return 0;
+}
+
+
 char *pow_params_name[] = {
     "x",
     "y"
@@ -314,21 +481,6 @@ int KAOS_EXPORT Kaos_sqrt()
     return 0;
 }
 
-char *exp_params_name[] = {
-    "x"
-};
-unsigned exp_params_type[] = {
-    K_NUMBER
-};
-unsigned short exp_params_length = (unsigned short) sizeof(exp_params_type) / sizeof(unsigned);
-int KAOS_EXPORT Kaos_exp()
-{
-    long double x = kaos.getVariableFloat(pow_params_name[0]);
-    x = exp(x);
-    kaos.returnVariableFloat(x);
-    return 0;
-}
-
 char *abs_params_name[] = {
     "x"
 };
@@ -371,11 +523,22 @@ int KAOS_EXPORT KaosRegister(struct Kaos _kaos)
     kaos.defineFunction("asinh", K_NUMBER, asinh_params_name, asinh_params_type, asinh_params_length);
     kaos.defineFunction("atanh", K_NUMBER, atanh_params_name, atanh_params_type, atanh_params_length);
 
+    // Exponential and logarithmic functions
+    kaos.defineFunction("exp", K_NUMBER, exp_params_name, exp_params_type, exp_params_length);
+    kaos.defineFunction("frexp", K_DICT, frexp_params_name, frexp_params_type, frexp_params_length);
+    kaos.defineFunction("ldexp", K_NUMBER, ldexp_params_name, ldexp_params_type, ldexp_params_length);
+    kaos.defineFunction("ln", K_NUMBER, ln_params_name, ln_params_type, ln_params_length);
+    kaos.defineFunction("log", K_NUMBER, log_params_name, log_params_type, log_params_length);
+    kaos.defineFunction("log1p", K_NUMBER, log1p_params_name, log1p_params_type, log1p_params_length);
+    kaos.defineFunction("log2", K_NUMBER, log2_params_name, log2_params_type, log2_params_length);
+    kaos.defineFunction("log10", K_NUMBER, log10_params_name, log10_params_type, log10_params_length);
+    kaos.defineFunction("modf", K_DICT, modf_params_name, modf_params_type, modf_params_length);
+    kaos.defineFunction("expm1", K_NUMBER, expm1_params_name, expm1_params_type, expm1_params_length);
+
     kaos.defineFunction("pow", K_NUMBER, pow_params_name, pow_params_type, pow_params_length);
     kaos.defineFunction("ceil", K_NUMBER, ceil_params_name, ceil_params_type, ceil_params_length);
     kaos.defineFunction("floor", K_NUMBER, floor_params_name, floor_params_type, floor_params_length);
     kaos.defineFunction("sqrt", K_NUMBER, sqrt_params_name, sqrt_params_type, sqrt_params_length);
-    kaos.defineFunction("exp", K_NUMBER, exp_params_name, exp_params_type, exp_params_length);
     kaos.defineFunction("abs", K_NUMBER, abs_params_name, abs_params_type, abs_params_length);
 
     return 0;
