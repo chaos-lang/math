@@ -130,14 +130,6 @@ echo "round: "
 print math.round(3.8)
 echo "round: "
 print math.round(-3.8)
-echo "rint: "
-print math.rint(3.8)
-echo "rint: "
-print math.rint(-3.8)
-echo "nearbyint: "
-print math.nearbyint(3.8)
-echo "nearbyint: "
-print math.nearbyint(-3.8)
 echo "remainder: "
 print math.remainder(18.5, 4.2)
 dict remquo = math.remquo(10.3, 4.5)

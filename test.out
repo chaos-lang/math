@@ -72,10 +72,6 @@ trunc: 3
 trunc: -3
 round: 4
 round: -4
-rint: 4
-rint: -4
-nearbyint: 4
-nearbyint: -4
 remainder: 1.7
 remquo remainder: 1.3
 remquo quotient: 2

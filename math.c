@@ -298,8 +298,8 @@ int KAOS_EXPORT Kaos_frexp()
 }
 
 char *ldexp_params_name[] = {
-    "m",
-    "n"
+    "x",
+    "y"
 };
 unsigned ldexp_params_type[] = {
     K_NUMBER,
@@ -308,10 +308,10 @@ unsigned ldexp_params_type[] = {
 unsigned short ldexp_params_length = (unsigned short) sizeof(ldexp_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_ldexp()
 {
-    long double m = kaos.getVariableFloat(ldexp_params_name[0]);
-    long double n = kaos.getVariableFloat(ldexp_params_name[1]);
-    m = ldexpl(m ,n);
-    kaos.returnVariableFloat(m);
+    long double x = kaos.getVariableFloat(ldexp_params_name[0]);
+    long double y = kaos.getVariableFloat(ldexp_params_name[1]);
+    x = ldexpl(x, y);
+    kaos.returnVariableFloat(x);
     return 0;
 }
 
@@ -658,36 +658,6 @@ int KAOS_EXPORT Kaos_round()
     return 0;
 }
 
-char *rint_params_name[] = {
-    "x"
-};
-unsigned rint_params_type[] = {
-    K_NUMBER
-};
-unsigned short rint_params_length = (unsigned short) sizeof(rint_params_type) / sizeof(unsigned);
-int KAOS_EXPORT Kaos_rint()
-{
-    long double x = kaos.getVariableFloat(rint_params_name[0]);
-    long long y = llrintl(x);
-    kaos.returnVariableInt(y);
-    return 0;
-}
-
-char *nearbyint_params_name[] = {
-    "x"
-};
-unsigned nearbyint_params_type[] = {
-    K_NUMBER
-};
-unsigned short nearbyint_params_length = (unsigned short) sizeof(nearbyint_params_type) / sizeof(unsigned);
-int KAOS_EXPORT Kaos_nearbyint()
-{
-    long double x = kaos.getVariableFloat(nearbyint_params_name[0]);
-    long long y = (long long) nearbyintl(x);
-    kaos.returnVariableInt(y);
-    return 0;
-}
-
 char *remainder_params_name[] = {
     "x",
     "y"
@@ -763,24 +733,6 @@ int KAOS_EXPORT Kaos_nextafter()
     long double x = kaos.getVariableFloat(nextafter_params_name[0]);
     long double y = kaos.getVariableFloat(nextafter_params_name[1]);
     x = nextafterl(x ,y);
-    kaos.returnVariableFloat(x);
-    return 0;
-}
-
-char *nexttoward_params_name[] = {
-    "x",
-    "y"
-};
-unsigned nexttoward_params_type[] = {
-    K_NUMBER,
-    K_NUMBER
-};
-unsigned short nexttoward_params_length = (unsigned short) sizeof(nexttoward_params_type) / sizeof(unsigned);
-int KAOS_EXPORT Kaos_nexttoward()
-{
-    long double x = kaos.getVariableFloat(nexttoward_params_name[0]);
-    long double y = kaos.getVariableFloat(nexttoward_params_name[1]);
-    x = nexttowardl(x ,y);
     kaos.returnVariableFloat(x);
     return 0;
 }
@@ -956,15 +908,12 @@ int KAOS_EXPORT KaosRegister(struct Kaos _kaos)
     kaos.defineFunction("fmod", K_NUMBER, fmod_params_name, fmod_params_type, fmod_params_length);
     kaos.defineFunction("trunc", K_NUMBER, trunc_params_name, trunc_params_type, trunc_params_length);
     kaos.defineFunction("round", K_NUMBER, round_params_name, round_params_type, round_params_length);
-    kaos.defineFunction("rint", K_NUMBER, rint_params_name, rint_params_type, rint_params_length);
-    kaos.defineFunction("nearbyint", K_NUMBER, nearbyint_params_name, nearbyint_params_type, nearbyint_params_length);
     kaos.defineFunction("remainder", K_NUMBER, remainder_params_name, remainder_params_type, remainder_params_length);
     kaos.defineFunction("remquo", K_DICT, remquo_params_name, remquo_params_type, remquo_params_length);
 
     // Floating-point manipulation functions
     kaos.defineFunction("copysign", K_NUMBER, copysign_params_name, copysign_params_type, copysign_params_length);
     kaos.defineFunction("nextafter", K_NUMBER, nextafter_params_name, nextafter_params_type, nextafter_params_length);
-    kaos.defineFunction("nexttoward", K_NUMBER, nexttoward_params_name, nexttoward_params_type, nexttoward_params_length);
 
     // Other functions
     kaos.defineFunction("abs", K_NUMBER, abs_params_name, abs_params_type, abs_params_length);
