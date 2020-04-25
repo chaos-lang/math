@@ -755,6 +755,24 @@ int KAOS_EXPORT Kaos_abs()
     return 0;
 }
 
+long long factorial(long long n) {
+    return n < 0 ? -1 : n == 0 ? 1 : n * factorial(n - 1);
+}
+char *factorial_params_name[] = {
+    "x"
+};
+unsigned factorial_params_type[] = {
+    K_NUMBER
+};
+unsigned short factorial_params_length = (unsigned short) sizeof(factorial_params_type) / sizeof(unsigned);
+int KAOS_EXPORT Kaos_factorial()
+{
+    long long x = kaos.getVariableFloat(factorial_params_name[0]);
+    x = factorial(x);
+    kaos.returnVariableInt(x);
+    return 0;
+}
+
 
 // Boolean functions
 
@@ -917,6 +935,7 @@ int KAOS_EXPORT KaosRegister(struct Kaos _kaos)
 
     // Other functions
     kaos.defineFunction("abs", K_NUMBER, abs_params_name, abs_params_type, abs_params_length);
+    kaos.defineFunction("factorial", K_NUMBER, factorial_params_name, factorial_params_type, factorial_params_length);
 
     // Boolean functions
     kaos.defineFunction("is_finite", K_BOOL, is_finite_params_name, is_finite_params_type, is_finite_params_length);

@@ -86,6 +86,8 @@ copysign: -10
 
 abs: 3.1416
 abs: 10.6
+factorial: 120
+factorial: -1
 
 
 # Boolean functions
