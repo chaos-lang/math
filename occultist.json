@@ -1,6 +1,6 @@
 {
     "name": "math",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "description": "Math library of Chaos language.",
     "tags": ["official", "math"],
     "type": "extension",
