@@ -1,7 +1,7 @@
 import math
 
-// Mathematical constants
-str title1 = "# Mathematical constants\n"
+// Mathematical Constants
+str title1 = "# Mathematical Constants\n"
 print title1
 num pi = math.pi()
 echo "pi: "
@@ -19,8 +19,8 @@ num nan = math.nan()
 echo "nan: "
 print nan
 
-// Trigonometric functions
-str title2 = "\n\n# Trigonometric functions\n"
+// Trigonometric Functions
+str title2 = "\n\n# Trigonometric Functions\n"
 print title2
 echo "cos: "
 print math.cos(60)
@@ -37,8 +37,8 @@ print math.atan(1.0)
 echo "atan2: "
 print math.atan2(-10.0, 10.0)
 
-// Hyperbolic functions
-str title3 = "\n\n# Hyperbolic functions\n"
+// Hyperbolic Functions
+str title3 = "\n\n# Hyperbolic Functions\n"
 print title3
 echo "cosh: "
 print math.cosh(0.693147)
@@ -53,12 +53,12 @@ print math.asinh(3.626860)
 echo "atanh: "
 print math.atanh(0.761594)
 
-// Exponential and logarithmic functions
-str title4 = "\n\n# Exponential and logarithmic functions\n"
+// Exponential and Logarithmic Functions
+str title4 = "\n\n# Exponential and Logarithmic Functions\n"
 print title4
 echo "exp: "
 print math.exp(5)
-dict frexp = math.frexp(8)
+num dict frexp = math.frexp(8)
 echo "frexp mantissa: "
 print frexp['mantissa']
 echo "frexp exponent: "
@@ -75,7 +75,7 @@ echo "log2: "
 print math.log2(1024.0)
 echo "log10: "
 print math.log10(1000)
-dict modf = math.modf(3.141593)
+num dict modf = math.modf(3.141593)
 echo "modf integer: "
 print modf['integer']
 echo "modf fraction: "
@@ -83,8 +83,8 @@ print modf['fraction']
 echo "expm1: "
 print math.expm1(1.0)
 
-// Power functions
-str title5 = "\n\n# Power functions\n"
+// Power Functions
+str title5 = "\n\n# Power Functions\n"
 print title5
 echo "pow: "
 print math.pow(2, 3)
@@ -95,8 +95,8 @@ print math.cbrt(27)
 echo "hypot: "
 print math.hypot(3.0, 4.0)
 
-// Error and gamma functions
-str title6 = "\n\n# Error and gamma functions\n"
+// Error and Gamma Functions
+str title6 = "\n\n# Error and Gamma Functions\n"
 print title6
 echo "erf: "
 print math.erf(1.0)
@@ -107,8 +107,8 @@ print math.gamma(0.5)
 echo "lgamma: "
 print math.lgamma(0.5)
 
-// Rounding and remainder functions
-str title7 = "\n\n# Rounding and remainder functions\n"
+// Rounding and Remainder Functions
+str title7 = "\n\n# Rounding and Remainder Functions\n"
 print title7
 echo "ceil: "
 print math.ceil(3.8)
@@ -132,20 +132,20 @@ echo "round: "
 print math.round(-3.8)
 echo "remainder: "
 print math.remainder(18.5, 4.2)
-dict remquo = math.remquo(10.3, 4.5)
+num dict remquo = math.remquo(10.3, 4.5)
 echo "remquo remainder: "
 print remquo['remainder']
 echo "remquo quotient: "
 print remquo['quotient']
 
-// Floating-point manipulation functions
+// Floating-point Manipulation Functions
 str title8 = "\n\n# Floating-point manipulation functions\n"
 print title8
 echo "copysign: "
 print math.copysign(-10.0, -1.0)
 
-// Other functions
-str title9 = "\n\n# Other functions\n"
+// Other Functions
+str title9 = "\n\n# Other Functions\n"
 print title9
 echo "abs: "
 print math.abs(3.1416)
@@ -156,8 +156,8 @@ print math.factorial(5)
 echo "factorial: "
 print math.factorial(-5)
 
-// Boolean functions
-str title10 = "\n\n# Boolean functions\n"
+// Boolean Functions
+str title10 = "\n\n# Boolean Functions\n"
 print title10
 echo "is_finite: "
 print math.is_finite(0.0)

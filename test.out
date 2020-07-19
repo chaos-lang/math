@@ -1,4 +1,4 @@
-# Mathematical constants
+# Mathematical Constants
 
 pi: 3.14159
 e: 2.71828
@@ -7,7 +7,7 @@ inf: inf
 nan: nan
 
 
-# Trigonometric functions
+# Trigonometric Functions
 
 cos: 0.5
 sin: 0.5
@@ -18,7 +18,7 @@ atan: 45
 atan2: 135
 
 
-# Hyperbolic functions
+# Hyperbolic Functions
 
 cosh: 1.25
 sinh: 0.75
@@ -28,7 +28,7 @@ asinh: 2
 atanh: 1
 
 
-# Exponential and logarithmic functions
+# Exponential and Logarithmic Functions
 
 exp: 148.413
 frexp mantissa: 0.5
@@ -44,7 +44,7 @@ modf fraction: 0.141593
 expm1: 1.71828
 
 
-# Power functions
+# Power Functions
 
 pow: 8
 sqrt: 32
@@ -52,7 +52,7 @@ cbrt: 3
 hypot: 5
 
 
-# Error and gamma functions
+# Error and Gamma Functions
 
 erf: 0.842701
 erfc: 0.157299
@@ -60,7 +60,7 @@ gamma: 1.77245
 lgamma: 0.572365
 
 
-# Rounding and remainder functions
+# Rounding and Remainder Functions
 
 ceil: 4
 ceil: -3
@@ -82,7 +82,7 @@ remquo quotient: 2
 copysign: -10
 
 
-# Other functions
+# Other Functions
 
 abs: 3.1416
 abs: 10.6
@@ -90,7 +90,7 @@ factorial: 120
 factorial: -1
 
 
-# Boolean functions
+# Boolean Functions
 
 is_finite: true
 is_finite: false

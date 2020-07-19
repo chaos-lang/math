@@ -10,7 +10,7 @@ and import it with:
 import math
 ```
 
-## Mathematical constants
+## Mathematical Constants
 
 ### num math.pi()
 
@@ -57,7 +57,7 @@ kaos> math.nan()
 nan
 ```
 
-## Trigonometric functions
+## Trigonometric Functions
 
 ### num math.cos(num x)
 
@@ -122,7 +122,7 @@ kaos> math.atan2(-10.0, 10.0)
 135
 ```
 
-## Hyperbolic functions
+## Hyperbolic Functions
 
 ### num math.cosh(num x)
 
@@ -178,7 +178,7 @@ kaos> math.atanh(0.761594)
 1
 ```
 
-## Exponential and logarithmic functions
+## Exponential and Logarithmic Functions
 
 ### num math.exp(num x)
 
@@ -189,7 +189,7 @@ kaos> math.exp(5)
 148.413
 ```
 
-### dict math.frexp(num x)
+### num dict math.frexp(num x)
 
 Returns the mantissa and exponent of `x`: $x = {mantissa} \times 2^{exponent}$
 
@@ -264,7 +264,7 @@ kaos> math.log10(1000)
 3
 ```
 
-### dict math.modf(num x)
+### num dict math.modf(num x)
 
 Returns the integer and fractional parts of `x`.
 
@@ -285,7 +285,7 @@ kaos> math.expm1(1.0)
 1.71828
 ```
 
-## Power functions
+## Power Functions
 
 ### num math.pow(num x, num y)
 
@@ -323,7 +323,7 @@ kaos> math.hypot(3.0, 4.0)
 5
 ```
 
-## Error and gamma functions
+## Error and Gamma Functions
 
 ### num math.erf(num x)
 
@@ -363,7 +363,7 @@ kaos> math.lgamma(0.5)
 0.572365
 ```
 
-## Rounding and remainder functions
+## Rounding and Remainder Functions
 
 ### num math.ceil(num x)
 
@@ -436,7 +436,7 @@ kaos> math.remainder(18.5, 4.2)
 1.7
 ```
 
-### dict math.remquo(num x, num y)
+### num dict math.remquo(num x, num y)
 
 Returns the same as `remainder()`, but also returns the `quotient`.
 
@@ -448,7 +448,7 @@ kaos> remquo['quotient']
 2
 ```
 
-## Floating-point manipulation functions
+## Floating-point Manipulation Functions
 
 ### num math.copysign(num x, num y)
 
@@ -470,7 +470,7 @@ kaos> math.nextafter(0.0, -1.0)
 -3.6452e-4951
 ```
 
-## Other functions
+## Other Functions
 
 ### num math.abs(num x)
 
@@ -494,7 +494,7 @@ kaos> math.factorial(-5)
 -1
 ```
 
-## Boolean functions
+## Boolean Functions
 
 ### bool math.is_finite(num x)
 
