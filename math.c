@@ -13,6 +13,7 @@ const long double golden_ratio = 1.618033988749894848204586834365638117720309179
 
 char *pi_params_name[] = {};
 unsigned pi_params_type[] = {};
+unsigned pi_params_secondary_type[] = {};
 unsigned short pi_params_length = 0;
 int KAOS_EXPORT Kaos_pi()
 {
@@ -24,6 +25,7 @@ int KAOS_EXPORT Kaos_pi()
 
 char *e_params_name[] = {};
 unsigned e_params_type[] = {};
+unsigned e_params_secondary_type[] = {};
 unsigned short e_params_length = 0;
 int KAOS_EXPORT Kaos_e()
 {
@@ -35,6 +37,7 @@ int KAOS_EXPORT Kaos_e()
 
 char *golden_ratio_params_name[] = {};
 unsigned golden_ratio_params_type[] = {};
+unsigned golden_ratio_params_secondary_type[] = {};
 unsigned short golden_ratio_params_length = 0;
 int KAOS_EXPORT Kaos_golden_ratio()
 {
@@ -46,6 +49,7 @@ int KAOS_EXPORT Kaos_golden_ratio()
 
 char *inf_params_name[] = {};
 unsigned inf_params_type[] = {};
+unsigned inf_params_secondary_type[] = {};
 unsigned short inf_params_length = 0;
 int KAOS_EXPORT Kaos_inf()
 {
@@ -58,6 +62,7 @@ int KAOS_EXPORT Kaos_inf()
 
 char *nan_params_name[] = {};
 unsigned nan_params_type[] = {};
+unsigned nan_params_secondary_type[] = {};
 unsigned short nan_params_length = 0;
 int KAOS_EXPORT Kaos_nan()
 {
@@ -77,6 +82,9 @@ char *cos_params_name[] = {
 unsigned cos_params_type[] = {
     K_NUMBER
 };
+unsigned cos_params_secondary_type[] = {
+    K_ANY
+};
 unsigned short cos_params_length = (unsigned short) sizeof(cos_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_cos()
 {
@@ -93,6 +101,9 @@ char *sin_params_name[] = {
 };
 unsigned sin_params_type[] = {
     K_NUMBER
+};
+unsigned sin_params_secondary_type[] = {
+    K_ANY
 };
 unsigned short sin_params_length = (unsigned short) sizeof(sin_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_sin()
@@ -111,6 +122,9 @@ char *tan_params_name[] = {
 unsigned tan_params_type[] = {
     K_NUMBER
 };
+unsigned tan_params_secondary_type[] = {
+    K_ANY
+};
 unsigned short tan_params_length = (unsigned short) sizeof(tan_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_tan()
 {
@@ -127,6 +141,9 @@ char *acos_params_name[] = {
 };
 unsigned acos_params_type[] = {
     K_NUMBER
+};
+unsigned acos_params_secondary_type[] = {
+    K_ANY
 };
 unsigned short acos_params_length = (unsigned short) sizeof(acos_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_acos()
@@ -145,6 +162,9 @@ char *asin_params_name[] = {
 unsigned asin_params_type[] = {
     K_NUMBER
 };
+unsigned asin_params_secondary_type[] = {
+    K_ANY
+};
 unsigned short asin_params_length = (unsigned short) sizeof(asin_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_asin()
 {
@@ -161,6 +181,9 @@ char *atan_params_name[] = {
 };
 unsigned atan_params_type[] = {
     K_NUMBER
+};
+unsigned atan_params_secondary_type[] = {
+    K_ANY
 };
 unsigned short atan_params_length = (unsigned short) sizeof(atan_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_atan()
@@ -180,6 +203,10 @@ char *atan2_params_name[] = {
 unsigned atan2_params_type[] = {
     K_NUMBER,
     K_NUMBER
+};
+unsigned atan2_params_secondary_type[] = {
+    K_ANY,
+    K_ANY
 };
 unsigned short atan2_params_length = (unsigned short) sizeof(atan2_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_atan2()
@@ -202,6 +229,9 @@ char *cosh_params_name[] = {
 unsigned cosh_params_type[] = {
     K_NUMBER
 };
+unsigned cosh_params_secondary_type[] = {
+    K_ANY
+};
 unsigned short cosh_params_length = (unsigned short) sizeof(cosh_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_cosh()
 {
@@ -218,6 +248,9 @@ char *sinh_params_name[] = {
 };
 unsigned sinh_params_type[] = {
     K_NUMBER
+};
+unsigned sinh_params_secondary_type[] = {
+    K_ANY
 };
 unsigned short sinh_params_length = (unsigned short) sizeof(sinh_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_sinh()
@@ -236,6 +269,9 @@ char *tanh_params_name[] = {
 unsigned tanh_params_type[] = {
     K_NUMBER
 };
+unsigned tanh_params_secondary_type[] = {
+    K_ANY
+};
 unsigned short tanh_params_length = (unsigned short) sizeof(tanh_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_tanh()
 {
@@ -252,6 +288,9 @@ char *acosh_params_name[] = {
 };
 unsigned acosh_params_type[] = {
     K_NUMBER
+};
+unsigned acosh_params_secondary_type[] = {
+    K_ANY
 };
 unsigned short acosh_params_length = (unsigned short) sizeof(acosh_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_acosh()
@@ -270,6 +309,9 @@ char *asinh_params_name[] = {
 unsigned asinh_params_type[] = {
     K_NUMBER
 };
+unsigned asinh_params_secondary_type[] = {
+    K_ANY
+};
 unsigned short asinh_params_length = (unsigned short) sizeof(asinh_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_asinh()
 {
@@ -286,6 +328,9 @@ char *atanh_params_name[] = {
 };
 unsigned atanh_params_type[] = {
     K_NUMBER
+};
+unsigned atanh_params_secondary_type[] = {
+    K_ANY
 };
 unsigned short atanh_params_length = (unsigned short) sizeof(atanh_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_atanh()
@@ -307,6 +352,9 @@ char *exp_params_name[] = {
 unsigned exp_params_type[] = {
     K_NUMBER
 };
+unsigned exp_params_secondary_type[] = {
+    K_ANY
+};
 unsigned short exp_params_length = (unsigned short) sizeof(exp_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_exp()
 {
@@ -323,6 +371,9 @@ char *frexp_params_name[] = {
 };
 unsigned frexp_params_type[] = {
     K_NUMBER
+};
+unsigned frexp_params_secondary_type[] = {
+    K_ANY
 };
 unsigned short frexp_params_length = (unsigned short) sizeof(frexp_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_frexp()
@@ -347,6 +398,10 @@ unsigned ldexp_params_type[] = {
     K_NUMBER,
     K_NUMBER
 };
+unsigned ldexp_params_secondary_type[] = {
+    K_ANY,
+    K_ANY
+};
 unsigned short ldexp_params_length = (unsigned short) sizeof(ldexp_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_ldexp()
 {
@@ -364,6 +419,9 @@ char *ln_params_name[] = {
 };
 unsigned ln_params_type[] = {
     K_NUMBER
+};
+unsigned ln_params_secondary_type[] = {
+    K_ANY
 };
 unsigned short ln_params_length = (unsigned short) sizeof(ln_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_ln()
@@ -384,6 +442,10 @@ unsigned log_params_type[] = {
     K_NUMBER,
     K_NUMBER
 };
+unsigned log_params_secondary_type[] = {
+    K_ANY,
+    K_ANY
+};
 unsigned short log_params_length = (unsigned short) sizeof(log_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_log()
 {
@@ -402,6 +464,9 @@ char *log1p_params_name[] = {
 unsigned log1p_params_type[] = {
     K_NUMBER
 };
+unsigned log1p_params_secondary_type[] = {
+    K_ANY
+};
 unsigned short log1p_params_length = (unsigned short) sizeof(log1p_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_log1p()
 {
@@ -418,6 +483,9 @@ char *log2_params_name[] = {
 };
 unsigned log2_params_type[] = {
     K_NUMBER
+};
+unsigned log2_params_secondary_type[] = {
+    K_ANY
 };
 unsigned short log2_params_length = (unsigned short) sizeof(log2_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_log2()
@@ -436,6 +504,9 @@ char *log10_params_name[] = {
 unsigned log10_params_type[] = {
     K_NUMBER
 };
+unsigned log10_params_secondary_type[] = {
+    K_ANY
+};
 unsigned short log10_params_length = (unsigned short) sizeof(log10_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_log10()
 {
@@ -452,6 +523,9 @@ char *modf_params_name[] = {
 };
 unsigned modf_params_type[] = {
     K_NUMBER
+};
+unsigned modf_params_secondary_type[] = {
+    K_ANY
 };
 unsigned short modf_params_length = (unsigned short) sizeof(modf_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_modf()
@@ -473,6 +547,9 @@ char *expm1_params_name[] = {
 };
 unsigned expm1_params_type[] = {
     K_NUMBER
+};
+unsigned expm1_params_secondary_type[] = {
+    K_ANY
 };
 unsigned short expm1_params_length = (unsigned short) sizeof(expm1_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_expm1()
@@ -496,6 +573,10 @@ unsigned pow_params_type[] = {
     K_NUMBER,
     K_NUMBER
 };
+unsigned pow_params_secondary_type[] = {
+    K_ANY,
+    K_ANY
+};
 unsigned short pow_params_length = (unsigned short) sizeof(pow_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_pow()
 {
@@ -514,6 +595,9 @@ char *sqrt_params_name[] = {
 unsigned sqrt_params_type[] = {
     K_NUMBER
 };
+unsigned sqrt_params_secondary_type[] = {
+    K_ANY
+};
 unsigned short sqrt_params_length = (unsigned short) sizeof(sqrt_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_sqrt()
 {
@@ -530,6 +614,9 @@ char *cbrt_params_name[] = {
 };
 unsigned cbrt_params_type[] = {
     K_NUMBER
+};
+unsigned cbrt_params_secondary_type[] = {
+    K_ANY
 };
 unsigned short cbrt_params_length = (unsigned short) sizeof(cbrt_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_cbrt()
@@ -549,6 +636,10 @@ char *hypot_params_name[] = {
 unsigned hypot_params_type[] = {
     K_NUMBER,
     K_NUMBER
+};
+unsigned hypot_params_secondary_type[] = {
+    K_ANY,
+    K_ANY
 };
 unsigned short hypot_params_length = (unsigned short) sizeof(hypot_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_hypot()
@@ -571,6 +662,9 @@ char *erf_params_name[] = {
 unsigned erf_params_type[] = {
     K_NUMBER
 };
+unsigned erf_params_secondary_type[] = {
+    K_ANY
+};
 unsigned short erf_params_length = (unsigned short) sizeof(erf_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_erf()
 {
@@ -587,6 +681,9 @@ char *erfc_params_name[] = {
 };
 unsigned erfc_params_type[] = {
     K_NUMBER
+};
+unsigned erfc_params_secondary_type[] = {
+    K_ANY
 };
 unsigned short erfc_params_length = (unsigned short) sizeof(erfc_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_erfc()
@@ -605,6 +702,9 @@ char *gamma_params_name[] = {
 unsigned gamma_params_type[] = {
     K_NUMBER
 };
+unsigned gamma_params_secondary_type[] = {
+    K_ANY
+};
 unsigned short gamma_params_length = (unsigned short) sizeof(gamma_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_gamma()
 {
@@ -621,6 +721,9 @@ char *lgamma_params_name[] = {
 };
 unsigned lgamma_params_type[] = {
     K_NUMBER
+};
+unsigned lgamma_params_secondary_type[] = {
+    K_ANY
 };
 unsigned short lgamma_params_length = (unsigned short) sizeof(lgamma_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_lgamma()
@@ -642,6 +745,9 @@ char *ceil_params_name[] = {
 unsigned ceil_params_type[] = {
     K_NUMBER
 };
+unsigned ceil_params_secondary_type[] = {
+    K_ANY
+};
 unsigned short ceil_params_length = (unsigned short) sizeof(ceil_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_ceil()
 {
@@ -658,6 +764,9 @@ char *floor_params_name[] = {
 };
 unsigned floor_params_type[] = {
     K_NUMBER
+};
+unsigned floor_params_secondary_type[] = {
+    K_ANY
 };
 unsigned short floor_params_length = (unsigned short) sizeof(floor_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_floor()
@@ -677,6 +786,10 @@ char *mod_params_name[] = {
 unsigned mod_params_type[] = {
     K_NUMBER,
     K_NUMBER
+};
+unsigned mod_params_secondary_type[] = {
+    K_ANY,
+    K_ANY
 };
 unsigned short mod_params_length = (unsigned short) sizeof(mod_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_mod()
@@ -698,6 +811,10 @@ unsigned fmod_params_type[] = {
     K_NUMBER,
     K_NUMBER
 };
+unsigned fmod_params_secondary_type[] = {
+    K_ANY,
+    K_ANY
+};
 unsigned short fmod_params_length = (unsigned short) sizeof(fmod_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_fmod()
 {
@@ -716,6 +833,9 @@ char *trunc_params_name[] = {
 unsigned trunc_params_type[] = {
     K_NUMBER
 };
+unsigned trunc_params_secondary_type[] = {
+    K_ANY
+};
 unsigned short trunc_params_length = (unsigned short) sizeof(trunc_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_trunc()
 {
@@ -732,6 +852,9 @@ char *round_params_name[] = {
 };
 unsigned round_params_type[] = {
     K_NUMBER
+};
+unsigned round_params_secondary_type[] = {
+    K_ANY
 };
 unsigned short round_params_length = (unsigned short) sizeof(round_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_round()
@@ -752,6 +875,10 @@ unsigned remainder_params_type[] = {
     K_NUMBER,
     K_NUMBER
 };
+unsigned remainder_params_secondary_type[] = {
+    K_ANY,
+    K_ANY
+};
 unsigned short remainder_params_length = (unsigned short) sizeof(remainder_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_remainder()
 {
@@ -771,6 +898,10 @@ char *remquo_params_name[] = {
 unsigned remquo_params_type[] = {
     K_NUMBER,
     K_NUMBER
+};
+unsigned remquo_params_secondary_type[] = {
+    K_ANY,
+    K_ANY
 };
 unsigned short remquo_params_length = (unsigned short) sizeof(remquo_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_remquo()
@@ -799,6 +930,10 @@ unsigned copysign_params_type[] = {
     K_NUMBER,
     K_NUMBER
 };
+unsigned copysign_params_secondary_type[] = {
+    K_ANY,
+    K_ANY
+};
 unsigned short copysign_params_length = (unsigned short) sizeof(copysign_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_copysign()
 {
@@ -818,6 +953,10 @@ char *nextafter_params_name[] = {
 unsigned nextafter_params_type[] = {
     K_NUMBER,
     K_NUMBER
+};
+unsigned nextafter_params_secondary_type[] = {
+    K_ANY,
+    K_ANY
 };
 unsigned short nextafter_params_length = (unsigned short) sizeof(nextafter_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_nextafter()
@@ -840,6 +979,9 @@ char *abs_params_name[] = {
 unsigned abs_params_type[] = {
     K_NUMBER
 };
+unsigned abs_params_secondary_type[] = {
+    K_ANY
+};
 unsigned short abs_params_length = (unsigned short) sizeof(abs_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_abs()
 {
@@ -859,6 +1001,9 @@ char *factorial_params_name[] = {
 };
 unsigned factorial_params_type[] = {
     K_NUMBER
+};
+unsigned factorial_params_secondary_type[] = {
+    K_ANY
 };
 unsigned short factorial_params_length = (unsigned short) sizeof(factorial_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_factorial()
@@ -880,6 +1025,9 @@ char *is_finite_params_name[] = {
 unsigned is_finite_params_type[] = {
     K_NUMBER
 };
+unsigned is_finite_params_secondary_type[] = {
+    K_ANY
+};
 unsigned short is_finite_params_length = (unsigned short) sizeof(is_finite_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_is_finite()
 {
@@ -896,6 +1044,9 @@ char *is_inf_params_name[] = {
 };
 unsigned is_inf_params_type[] = {
     K_NUMBER
+};
+unsigned is_inf_params_secondary_type[] = {
+    K_ANY
 };
 unsigned short is_inf_params_length = (unsigned short) sizeof(is_inf_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_is_inf()
@@ -914,6 +1065,9 @@ char *is_nan_params_name[] = {
 unsigned is_nan_params_type[] = {
     K_NUMBER
 };
+unsigned is_nan_params_secondary_type[] = {
+    K_ANY
+};
 unsigned short is_nan_params_length = (unsigned short) sizeof(is_nan_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_is_nan()
 {
@@ -930,6 +1084,9 @@ char *is_normal_params_name[] = {
 };
 unsigned is_normal_params_type[] = {
     K_NUMBER
+};
+unsigned is_normal_params_secondary_type[] = {
+    K_ANY
 };
 unsigned short is_normal_params_length = (unsigned short) sizeof(is_normal_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_is_normal()
@@ -948,6 +1105,9 @@ char *is_positive_params_name[] = {
 unsigned is_positive_params_type[] = {
     K_NUMBER
 };
+unsigned is_positive_params_secondary_type[] = {
+    K_ANY
+};
 unsigned short is_positive_params_length = (unsigned short) sizeof(is_positive_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_is_positive()
 {
@@ -965,6 +1125,9 @@ char *is_negative_params_name[] = {
 unsigned is_negative_params_type[] = {
     K_NUMBER
 };
+unsigned is_negative_params_secondary_type[] = {
+    K_ANY
+};
 unsigned short is_negative_params_length = (unsigned short) sizeof(is_negative_params_type) / sizeof(unsigned);
 int KAOS_EXPORT Kaos_is_negative()
 {
@@ -980,78 +1143,78 @@ int KAOS_EXPORT KaosRegister(struct Kaos _kaos)
     kaos = _kaos;
 
     // Mathematical Constants
-    kaos.defineFunction("pi", K_NUMBER, K_ANY, pi_params_name, pi_params_type, pi_params_length, NULL, 0);
-    kaos.defineFunction("e", K_NUMBER, K_ANY, e_params_name, e_params_type, e_params_length, NULL, 0);
-    kaos.defineFunction("golden_ratio", K_NUMBER, K_ANY, golden_ratio_params_name, golden_ratio_params_type, golden_ratio_params_length, NULL, 0);
-    kaos.defineFunction("inf", K_NUMBER, K_ANY, inf_params_name, inf_params_type, inf_params_length, NULL, 0);
-    kaos.defineFunction("nan", K_NUMBER, K_ANY, nan_params_name, nan_params_type, nan_params_length, NULL, 0);
+    kaos.defineFunction("pi", K_NUMBER, K_ANY, pi_params_name, pi_params_type, pi_params_secondary_type, pi_params_length, NULL, 0);
+    kaos.defineFunction("e", K_NUMBER, K_ANY, e_params_name, e_params_type, e_params_secondary_type, e_params_length, NULL, 0);
+    kaos.defineFunction("golden_ratio", K_NUMBER, K_ANY, golden_ratio_params_name, golden_ratio_params_type, golden_ratio_params_secondary_type, golden_ratio_params_length, NULL, 0);
+    kaos.defineFunction("inf", K_NUMBER, K_ANY, inf_params_name, inf_params_type, inf_params_secondary_type, inf_params_length, NULL, 0);
+    kaos.defineFunction("nan", K_NUMBER, K_ANY, nan_params_name, nan_params_type, nan_params_secondary_type, nan_params_length, NULL, 0);
 
     // Trigonometric Functions
-    kaos.defineFunction("cos", K_NUMBER, K_ANY, cos_params_name, cos_params_type, cos_params_length, NULL, 0);
-    kaos.defineFunction("sin", K_NUMBER, K_ANY, sin_params_name, sin_params_type, sin_params_length, NULL, 0);
-    kaos.defineFunction("tan", K_NUMBER, K_ANY, tan_params_name, tan_params_type, tan_params_length, NULL, 0);
-    kaos.defineFunction("acos", K_NUMBER, K_ANY, acos_params_name, acos_params_type, acos_params_length, NULL, 0);
-    kaos.defineFunction("asin", K_NUMBER, K_ANY, asin_params_name, asin_params_type, asin_params_length, NULL, 0);
-    kaos.defineFunction("atan", K_NUMBER, K_ANY, atan_params_name, atan_params_type, atan_params_length, NULL, 0);
-    kaos.defineFunction("atan2", K_NUMBER, K_ANY, atan2_params_name, atan2_params_type, atan2_params_length, NULL, 0);
+    kaos.defineFunction("cos", K_NUMBER, K_ANY, cos_params_name, cos_params_type, cos_params_secondary_type, cos_params_length, NULL, 0);
+    kaos.defineFunction("sin", K_NUMBER, K_ANY, sin_params_name, sin_params_type, sin_params_secondary_type, sin_params_length, NULL, 0);
+    kaos.defineFunction("tan", K_NUMBER, K_ANY, tan_params_name, tan_params_type, tan_params_secondary_type, tan_params_length, NULL, 0);
+    kaos.defineFunction("acos", K_NUMBER, K_ANY, acos_params_name, acos_params_type, acos_params_secondary_type, acos_params_length, NULL, 0);
+    kaos.defineFunction("asin", K_NUMBER, K_ANY, asin_params_name, asin_params_type, asin_params_secondary_type, asin_params_length, NULL, 0);
+    kaos.defineFunction("atan", K_NUMBER, K_ANY, atan_params_name, atan_params_type, atan_params_secondary_type, atan_params_length, NULL, 0);
+    kaos.defineFunction("atan2", K_NUMBER, K_ANY, atan2_params_name, atan2_params_type, atan2_params_secondary_type, atan2_params_length, NULL, 0);
 
     // Hyperbolic Functions
-    kaos.defineFunction("cosh", K_NUMBER, K_ANY, cosh_params_name, cosh_params_type, cosh_params_length, NULL, 0);
-    kaos.defineFunction("sinh", K_NUMBER, K_ANY, sinh_params_name, sinh_params_type, sinh_params_length, NULL, 0);
-    kaos.defineFunction("tanh", K_NUMBER, K_ANY, tanh_params_name, tanh_params_type, tanh_params_length, NULL, 0);
-    kaos.defineFunction("acosh", K_NUMBER, K_ANY, acosh_params_name, acosh_params_type, acosh_params_length, NULL, 0);
-    kaos.defineFunction("asinh", K_NUMBER, K_ANY, asinh_params_name, asinh_params_type, asinh_params_length, NULL, 0);
-    kaos.defineFunction("atanh", K_NUMBER, K_ANY, atanh_params_name, atanh_params_type, atanh_params_length, NULL, 0);
+    kaos.defineFunction("cosh", K_NUMBER, K_ANY, cosh_params_name, cosh_params_type, cosh_params_secondary_type, cosh_params_length, NULL, 0);
+    kaos.defineFunction("sinh", K_NUMBER, K_ANY, sinh_params_name, sinh_params_type, sinh_params_secondary_type, sinh_params_length, NULL, 0);
+    kaos.defineFunction("tanh", K_NUMBER, K_ANY, tanh_params_name, tanh_params_type, tanh_params_secondary_type, tanh_params_length, NULL, 0);
+    kaos.defineFunction("acosh", K_NUMBER, K_ANY, acosh_params_name, acosh_params_type, acosh_params_secondary_type, acosh_params_length, NULL, 0);
+    kaos.defineFunction("asinh", K_NUMBER, K_ANY, asinh_params_name, asinh_params_type, asinh_params_secondary_type, asinh_params_length, NULL, 0);
+    kaos.defineFunction("atanh", K_NUMBER, K_ANY, atanh_params_name, atanh_params_type, atanh_params_secondary_type, atanh_params_length, NULL, 0);
 
     // Exponential and Logarithmic Functions
-    kaos.defineFunction("exp", K_NUMBER, K_ANY, exp_params_name, exp_params_type, exp_params_length, NULL, 0);
-    kaos.defineFunction("frexp", K_DICT, K_NUMBER, frexp_params_name, frexp_params_type, frexp_params_length, NULL, 0);
-    kaos.defineFunction("ldexp", K_NUMBER, K_ANY, ldexp_params_name, ldexp_params_type, ldexp_params_length, NULL, 0);
-    kaos.defineFunction("ln", K_NUMBER, K_ANY, ln_params_name, ln_params_type, ln_params_length, NULL, 0);
-    kaos.defineFunction("log", K_NUMBER, K_ANY, log_params_name, log_params_type, log_params_length, NULL, 0);
-    kaos.defineFunction("log1p", K_NUMBER, K_ANY, log1p_params_name, log1p_params_type, log1p_params_length, NULL, 0);
-    kaos.defineFunction("log2", K_NUMBER, K_ANY, log2_params_name, log2_params_type, log2_params_length, NULL, 0);
-    kaos.defineFunction("log10", K_NUMBER, K_ANY, log10_params_name, log10_params_type, log10_params_length, NULL, 0);
-    kaos.defineFunction("modf", K_DICT, K_NUMBER, modf_params_name, modf_params_type, modf_params_length, NULL, 0);
-    kaos.defineFunction("expm1", K_NUMBER, K_ANY, expm1_params_name, expm1_params_type, expm1_params_length, NULL, 0);
+    kaos.defineFunction("exp", K_NUMBER, K_ANY, exp_params_name, exp_params_type, exp_params_secondary_type, exp_params_length, NULL, 0);
+    kaos.defineFunction("frexp", K_DICT, K_NUMBER, frexp_params_name, frexp_params_type, frexp_params_secondary_type, frexp_params_length, NULL, 0);
+    kaos.defineFunction("ldexp", K_NUMBER, K_ANY, ldexp_params_name, ldexp_params_type, ldexp_params_secondary_type, ldexp_params_length, NULL, 0);
+    kaos.defineFunction("ln", K_NUMBER, K_ANY, ln_params_name, ln_params_type, ln_params_secondary_type, ln_params_length, NULL, 0);
+    kaos.defineFunction("log", K_NUMBER, K_ANY, log_params_name, log_params_type, log_params_secondary_type, log_params_length, NULL, 0);
+    kaos.defineFunction("log1p", K_NUMBER, K_ANY, log1p_params_name, log1p_params_type, log1p_params_secondary_type, log1p_params_length, NULL, 0);
+    kaos.defineFunction("log2", K_NUMBER, K_ANY, log2_params_name, log2_params_type, log2_params_secondary_type, log2_params_length, NULL, 0);
+    kaos.defineFunction("log10", K_NUMBER, K_ANY, log10_params_name, log10_params_type, log10_params_secondary_type, log10_params_length, NULL, 0);
+    kaos.defineFunction("modf", K_DICT, K_NUMBER, modf_params_name, modf_params_type, modf_params_secondary_type, modf_params_length, NULL, 0);
+    kaos.defineFunction("expm1", K_NUMBER, K_ANY, expm1_params_name, expm1_params_type, expm1_params_secondary_type, expm1_params_length, NULL, 0);
 
     // Power Functions
-    kaos.defineFunction("pow", K_NUMBER, K_ANY, pow_params_name, pow_params_type, pow_params_length, NULL, 0);
-    kaos.defineFunction("sqrt", K_NUMBER, K_ANY, sqrt_params_name, sqrt_params_type, sqrt_params_length, NULL, 0);
-    kaos.defineFunction("cbrt", K_NUMBER, K_ANY, cbrt_params_name, cbrt_params_type, cbrt_params_length, NULL, 0);
-    kaos.defineFunction("hypot", K_NUMBER, K_ANY, hypot_params_name, hypot_params_type, hypot_params_length, NULL, 0);
+    kaos.defineFunction("pow", K_NUMBER, K_ANY, pow_params_name, pow_params_type, pow_params_secondary_type, pow_params_length, NULL, 0);
+    kaos.defineFunction("sqrt", K_NUMBER, K_ANY, sqrt_params_name, sqrt_params_type, sqrt_params_secondary_type, sqrt_params_length, NULL, 0);
+    kaos.defineFunction("cbrt", K_NUMBER, K_ANY, cbrt_params_name, cbrt_params_type, cbrt_params_secondary_type, cbrt_params_length, NULL, 0);
+    kaos.defineFunction("hypot", K_NUMBER, K_ANY, hypot_params_name, hypot_params_type, hypot_params_secondary_type, hypot_params_length, NULL, 0);
 
     // Error and Gamma Functions
-    kaos.defineFunction("erf", K_NUMBER, K_ANY, erf_params_name, erf_params_type, erf_params_length, NULL, 0);
-    kaos.defineFunction("erfc", K_NUMBER, K_ANY, erfc_params_name, erfc_params_type, erfc_params_length, NULL, 0);
-    kaos.defineFunction("gamma", K_NUMBER, K_ANY, gamma_params_name, gamma_params_type, gamma_params_length, NULL, 0);
-    kaos.defineFunction("lgamma", K_NUMBER, K_ANY, lgamma_params_name, lgamma_params_type, lgamma_params_length, NULL, 0);
+    kaos.defineFunction("erf", K_NUMBER, K_ANY, erf_params_name, erf_params_type, erf_params_secondary_type, erf_params_length, NULL, 0);
+    kaos.defineFunction("erfc", K_NUMBER, K_ANY, erfc_params_name, erfc_params_type, erfc_params_secondary_type, erfc_params_length, NULL, 0);
+    kaos.defineFunction("gamma", K_NUMBER, K_ANY, gamma_params_name, gamma_params_type, gamma_params_secondary_type, gamma_params_length, NULL, 0);
+    kaos.defineFunction("lgamma", K_NUMBER, K_ANY, lgamma_params_name, lgamma_params_type, lgamma_params_secondary_type, lgamma_params_length, NULL, 0);
 
     // Rounding and Remainder Functions
-    kaos.defineFunction("ceil", K_NUMBER, K_ANY, ceil_params_name, ceil_params_type, ceil_params_length, NULL, 0);
-    kaos.defineFunction("floor", K_NUMBER, K_ANY, floor_params_name, floor_params_type, floor_params_length, NULL, 0);
-    kaos.defineFunction("mod", K_NUMBER, K_ANY, mod_params_name, mod_params_type, mod_params_length, NULL, 0);
-    kaos.defineFunction("fmod", K_NUMBER, K_ANY, fmod_params_name, fmod_params_type, fmod_params_length, NULL, 0);
-    kaos.defineFunction("trunc", K_NUMBER, K_ANY, trunc_params_name, trunc_params_type, trunc_params_length, NULL, 0);
-    kaos.defineFunction("round", K_NUMBER, K_ANY, round_params_name, round_params_type, round_params_length, NULL, 0);
-    kaos.defineFunction("remainder", K_NUMBER, K_ANY, remainder_params_name, remainder_params_type, remainder_params_length, NULL, 0);
-    kaos.defineFunction("remquo", K_DICT, K_NUMBER, remquo_params_name, remquo_params_type, remquo_params_length, NULL, 0);
+    kaos.defineFunction("ceil", K_NUMBER, K_ANY, ceil_params_name, ceil_params_type, ceil_params_secondary_type, ceil_params_length, NULL, 0);
+    kaos.defineFunction("floor", K_NUMBER, K_ANY, floor_params_name, floor_params_type, floor_params_secondary_type, floor_params_length, NULL, 0);
+    kaos.defineFunction("mod", K_NUMBER, K_ANY, mod_params_name, mod_params_type, mod_params_secondary_type, mod_params_length, NULL, 0);
+    kaos.defineFunction("fmod", K_NUMBER, K_ANY, fmod_params_name, fmod_params_type, fmod_params_secondary_type, fmod_params_length, NULL, 0);
+    kaos.defineFunction("trunc", K_NUMBER, K_ANY, trunc_params_name, trunc_params_type, trunc_params_secondary_type, trunc_params_length, NULL, 0);
+    kaos.defineFunction("round", K_NUMBER, K_ANY, round_params_name, round_params_type, round_params_secondary_type, round_params_length, NULL, 0);
+    kaos.defineFunction("remainder", K_NUMBER, K_ANY, remainder_params_name, remainder_params_type, remainder_params_secondary_type, remainder_params_length, NULL, 0);
+    kaos.defineFunction("remquo", K_DICT, K_NUMBER, remquo_params_name, remquo_params_type, remquo_params_secondary_type, remquo_params_length, NULL, 0);
 
     // Floating-point Manipulation Functions
-    kaos.defineFunction("copysign", K_NUMBER, K_ANY, copysign_params_name, copysign_params_type, copysign_params_length, NULL, 0);
-    kaos.defineFunction("nextafter", K_NUMBER, K_ANY, nextafter_params_name, nextafter_params_type, nextafter_params_length, NULL, 0);
+    kaos.defineFunction("copysign", K_NUMBER, K_ANY, copysign_params_name, copysign_params_type, copysign_params_secondary_type, copysign_params_length, NULL, 0);
+    kaos.defineFunction("nextafter", K_NUMBER, K_ANY, nextafter_params_name, nextafter_params_type, nextafter_params_secondary_type, nextafter_params_length, NULL, 0);
 
     // Other Functions
-    kaos.defineFunction("abs", K_NUMBER, K_ANY, abs_params_name, abs_params_type, abs_params_length, NULL, 0);
-    kaos.defineFunction("factorial", K_NUMBER, K_ANY, factorial_params_name, factorial_params_type, factorial_params_length, NULL, 0);
+    kaos.defineFunction("abs", K_NUMBER, K_ANY, abs_params_name, abs_params_type, abs_params_secondary_type, abs_params_length, NULL, 0);
+    kaos.defineFunction("factorial", K_NUMBER, K_ANY, factorial_params_name, factorial_params_type, factorial_params_secondary_type, factorial_params_length, NULL, 0);
 
     // Boolean Functions
-    kaos.defineFunction("is_finite", K_BOOL, K_ANY, is_finite_params_name, is_finite_params_type, is_finite_params_length, NULL, 0);
-    kaos.defineFunction("is_inf", K_BOOL, K_ANY, is_inf_params_name, is_inf_params_type, is_inf_params_length, NULL, 0);
-    kaos.defineFunction("is_nan", K_BOOL, K_ANY, is_nan_params_name, is_nan_params_type, is_nan_params_length, NULL, 0);
-    kaos.defineFunction("is_normal", K_BOOL, K_ANY, is_normal_params_name, is_normal_params_type, is_normal_params_length, NULL, 0);
-    kaos.defineFunction("is_positive", K_BOOL, K_ANY, is_positive_params_name, is_positive_params_type, is_positive_params_length, NULL, 0);
-    kaos.defineFunction("is_negative", K_BOOL, K_ANY, is_negative_params_name, is_negative_params_type, is_negative_params_length, NULL, 0);
+    kaos.defineFunction("is_finite", K_BOOL, K_ANY, is_finite_params_name, is_finite_params_type, is_finite_params_secondary_type, is_finite_params_length, NULL, 0);
+    kaos.defineFunction("is_inf", K_BOOL, K_ANY, is_inf_params_name, is_inf_params_type, is_inf_params_secondary_type, is_inf_params_length, NULL, 0);
+    kaos.defineFunction("is_nan", K_BOOL, K_ANY, is_nan_params_name, is_nan_params_type, is_nan_params_secondary_type, is_nan_params_length, NULL, 0);
+    kaos.defineFunction("is_normal", K_BOOL, K_ANY, is_normal_params_name, is_normal_params_type, is_normal_params_secondary_type, is_normal_params_length, NULL, 0);
+    kaos.defineFunction("is_positive", K_BOOL, K_ANY, is_positive_params_name, is_positive_params_type, is_positive_params_secondary_type, is_positive_params_length, NULL, 0);
+    kaos.defineFunction("is_negative", K_BOOL, K_ANY, is_negative_params_name, is_negative_params_type, is_negative_params_secondary_type, is_negative_params_length, NULL, 0);
 
     return 0;
 }
