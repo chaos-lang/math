@@ -35,12 +35,18 @@ spell:
 test: spell
 	./test.sh
 
+test-compiler: spell
+	./test.sh compile
+
 memcheck: spell
 	valgrind --tool=memcheck --leak-check=full --show-reachable=yes --num-callers=20 --track-fds=yes --track-origins=yes --error-exitcode=1 chaos test.kaos || exit 1
+
+memcheck-compiler: spell
+	valgrind --tool=memcheck --leak-check=full --show-reachable=yes --num-callers=20 --track-fds=yes --track-origins=yes --error-exitcode=1 chaos -c test.kaos || exit 1
+	valgrind --tool=memcheck --leak-check=full --show-reachable=yes --num-callers=20 --track-fds=yes --track-origins=yes --error-exitcode=1 build/main || exit 1
 
 requirements:
 	git clone https://github.com/chaos-lang/chaos.git .chaos/ && \
 	cd .chaos/ && \
 	make requirements && \
-	make requirements-dev && \
 	rm -rf .chaos/

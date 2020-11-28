@@ -18,3 +18,6 @@ spells/
 
 # Chaos project directory
 .chaos/
+
+# Chaos build directory
+build

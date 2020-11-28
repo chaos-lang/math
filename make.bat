@@ -16,6 +16,15 @@ IF [%1]==[clang] (
         EXIT /B 1
     )
     EXIT /B 0
+) ELSE IF [%1]==[test-compiler] (
+    IF not exist spells\%spell_name% mkdir spells\%spell_name%
+    COPY %spell_name%.dll spells\%spell_name%
+
+    CALL test.bat compile
+    IF errorlevel 1 (
+        EXIT /B 1
+    )
+    EXIT /B 0
 ) ELSE IF [%1]==[requirements] (
     git clone https://github.com/chaos-lang/chaos.git .chaos/
     CD .chaos\

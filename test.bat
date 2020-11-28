@@ -1,7 +1,13 @@
 @ECHO OFF
 setlocal EnableDelayedExpansion
 
-chaos test.kaos > tmpFile
+IF "%~1"=="compile" (
+    chaos -c test.kaos
+    build\main > tmpFile
+) ELSE (
+    chaos test.kaos > tmpFile
+)
+
 FC test.out tmpFile
 IF errorlevel 1 (
     DEL tmpFile

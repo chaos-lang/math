@@ -24,6 +24,7 @@ jobs:
     - name: Run the memory leak checks (gcc)
       run: |
         make memcheck
+        make memcheck-compiler
 
     - name: Build (clang)
       run: |
@@ -33,3 +34,4 @@ jobs:
     - name: Run the memory leak checks (clang)
       run: |
         make memcheck
+        make memcheck-compiler

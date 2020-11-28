@@ -78,6 +78,7 @@ jobs:
     - name: Run the tests (gcc)
       run: |
         make test
+        make test-compiler
 
     - name: Build (clang)
       run: |
@@ -87,6 +88,7 @@ jobs:
     - name: Run the tests (clang)
       run: |
         make test
+        make test-compiler
 
   macos:
     name: macos
@@ -99,27 +101,30 @@ jobs:
       run: |
         mv /usr/local/bin/gcc-8 /usr/local/bin/gcc
         make requirements
-        brew install gnu-sed
 
     - name: Build (gcc)
       run: |
         source ~/.bash_profile
         cd .chaos/ && make && make install && cd ..
+        source ~/.bash_profile
         make
 
     - name: Run the tests (gcc)
       run: |
         make test
+        make test-compiler
 
     - name: Build (clang)
       run: |
         source ~/.bash_profile
         cd .chaos/ && make clang && make install && cd ..
+        source ~/.bash_profile
         make clang
 
     - name: Run the tests (clang)
       run: |
         make test
+        make test-compiler
 
   windows:
     name: windows
@@ -143,6 +148,7 @@ jobs:
       shell: cmd
       run: |
         call make.bat test
+        call make.bat test-compiler
 
     - name: Build (clang)
       shell: cmd
@@ -156,3 +162,4 @@ jobs:
       run: |
         call RefreshEnv.cmd
         call make.bat test
+        call make.bat test-compiler

@@ -1,9 +1,14 @@
 #!/bin/bash
 
 out=$(<"test.out")
-test=$(chaos test.kaos)
-if [ "$test" == "$out" ]
-then
+if [ "$#" -gt 0 ] && [ $1 == "compile" ]; then
+    chaos -c test.kaos && \
+    test=$(build/main)
+else
+    test=$(chaos test.kaos)
+fi
+
+if [ "$test" == "$out" ]; then
     echo "OK"
 else
     echo "$test"
