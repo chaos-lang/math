@@ -3,7 +3,7 @@
 SET spell_name=math
 
 IF [%1]==[clang] (
-    clang -shared %spell_name%.c -o %spell_name%.o -lm
+    clang -shared %spell_name%.c -o %spell_name%.o
     clang -c %spell_name%.c
     clang -shared -o %spell_name%.dll %spell_name%.o
     EXIT /B 0
@@ -38,7 +38,7 @@ IF [%1]==[clang] (
     EXIT /B 0
 )
 
-gcc -shared -fPIC %spell_name%.c -o %spell_name%.o -lm
+gcc -shared -fPIC %spell_name%.c -o %spell_name%.o
 gcc -c %spell_name%.c
 gcc -shared -o %spell_name%.dll %spell_name%.o -Wl,--out-implib,lib%spell_name%.a
 EXIT /B 0
